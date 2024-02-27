@@ -58,7 +58,7 @@ const LandingSecondary = () => {
                 <RightMaskContainer>
                     <img src="Images/blueright.png"></img>
                 </RightMaskContainer> */}
-                <Container maxWidth="lg" sx={{ height: isMobile ? '120vh' : '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '8rem' }}>
+                <Container maxWidth="lg" sx={{ height: isMobile ? '800px' : '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5rem' }}>
                     <Box my={'4rem'} >
                         <Flex flexDirection="column" gap="3rem">
                             <Flex flexDirection={{ sm: 'row', xs: 'column' }} gap={{ sm: '1rem', xs: '0rem' }}>

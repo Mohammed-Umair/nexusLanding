@@ -41,7 +41,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
       borderRadius: '15px',
       position: 'relative',
       height: isBig ? { sm: '98vh', xs: '100%' } : '80vh',
-      minHeight: isMobile ? '120vh' : '110vh'
+      minHeight: isMobile ? '800px' : '110vh'
     }} m="1rem" ref={targetRef}>
       <Header />
       <Grid container height="100%">
