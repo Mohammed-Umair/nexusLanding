@@ -11,16 +11,17 @@ const Container = forwardRef<HTMLDivElement, ComponentProps & BoxProps>(
       width,
       maxWidth,
       background,
-      borderRadius = "15px",
+      borderRadius = "15px", 
       padding = "10px",
       fullWidth,
+      hover = false,
       ...otherProps
     },
     ref
   ) {
     return (
       <Box
-        className="test-hover"
+        className={hover ? "test-hover" : ''}
         sx={{
           border: `1px solid ${DEFAULT_COLORS.Light}`,
           borderRadius,

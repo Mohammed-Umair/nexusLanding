@@ -34,7 +34,7 @@ const JoinCard = ({ image, hoverImage, title, description }: JoinCardProps) => {
     }
     return (
 
-        <Container borderRadius='30px' padding='1rem 1.5rem' ref={boxRef} onMouseOver={onMouse} onMouseLeave={offMouse} height={'4.5rem'} fullWidth maxWidth="280px" style={{ margin: '5px' }}>
+        <Container borderRadius='30px' padding='1rem 1.5rem' ref={boxRef} onMouseOver={onMouse} onMouseLeave={offMouse} height={'4.5rem'} fullWidth maxWidth="280px" style={{ margin: '5px' }} hover={true}>
             <Flex justifyContent='space-between'>
                 <Flex>
                     <Box width="50px" height="50px" position="relative">

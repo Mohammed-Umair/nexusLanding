@@ -17,7 +17,7 @@ interface ImageProps {
 const SecondayCard = ({ image, description }: ImageProps) => {
     const boxRef = useIntersectionAnimation() as RefObject<HTMLDivElement>;
     return (
-        <Container background={DEFAULT_COLORS.Dark_Light} width='100%' maxWidth='350px' borderRadius='25px' ref={boxRef}>
+        <Container background={DEFAULT_COLORS.Dark_Light} width='100%' maxWidth='350px' borderRadius='25px' ref={boxRef} hover={true}>
             <Grid container>
                 <Grid item lg={4} sm={4} xs={4}>
                     <button style={{
