@@ -18,6 +18,8 @@ import XIcon from '@mui/icons-material/X';
 import GoogleIcon from '@mui/icons-material/Google';
 import useIsBig from "@/app/hooks/useIsBig"
 import { useEffect, useState } from "react"
+import useIsTab from "@/app/hooks/useIsTab"
+
 
 
 interface ButtonProps {
@@ -28,6 +30,7 @@ interface ButtonProps {
 const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
   const isMobile = useIsMobile()
   const isBig = useIsBig()
+  const isTab = useIsTab()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     setTimeout(() => { setLoading(false) }, 1000)
@@ -117,7 +120,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
                 !isMobile && (
                   <>
                     <Box left="-34px" top="0rem" position="absolute" sx={{ opacity: loading ? '0' : '0.9', zIndex: 0 }} >
-                      <video width="700" height="800" autoPlay loop playsInline muted >
+                      <video width={isTab ? "500" : "700"} height={isTab ? "600" : "800"} autoPlay loop playsInline muted >
                         <source src='/Images/hero-video1.1.mp4' type="video/mp4" />
                         <track
                           src="/path/to/captions.vtt"
