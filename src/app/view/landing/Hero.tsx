@@ -30,7 +30,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
   const isBig = useIsBig()
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    setTimeout(() => { setLoading(false) }, 5000)
+    setTimeout(() => { setLoading(false) }, 1000)
   }, [])
 
 
@@ -62,7 +62,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
 
           ) : (
             <Flex style={{ position: 'relative', height: '100%' }} gap="0rem" justifyContent="end">
-              <Box position="relative" right="4rem">
+              <Box position="relative" right="4rem" zIndex={100}>
                 {!isMobile && (
                   <Heading fontSize="90px" fontFamily="SEN bold" color={DEFAULT_COLORS.White}>Leading  <br /> Launches</Heading>
                 )}
@@ -116,8 +116,17 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
               {
                 !isMobile && (
                   <>
-                    <Box left='0rem' top="0rem" position="absolute" sx={{ opacity: loading ? '0' : '0.8' }} >
-                      <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusAnimations/hero-main-gif.gif'} width="85%" />
+                    <Box left="-34px" top="0rem" position="absolute" sx={{ opacity: loading ? '0' : '0.9', zIndex: 0 }} >
+                      <video width="700" height="800" autoPlay loop playsInline muted >
+                        <source src='/Images/hero-video1.1.mp4' type="video/mp4" />
+                        <track
+                          src="/path/to/captions.vtt"
+                          kind="subtitles"
+                          srcLang="en"
+                          label="English"
+                        />
+                        Your browser does not support the video.
+                      </video>
                     </Box>
                     <Box left='0rem' top="0rem" position="absolute" sx={{ opacity: loading ? '0.8' : '0' }} >
                       <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/hero-main-png.png'} width="85%" />
@@ -137,7 +146,17 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
             {!isMobile && (
               <Box position={"relative"}>
                 <Box width="250px" position="relative">
-                  <Image src={IMAGE_COLLECTIONS.landingsecondary1} width="100%" style={{ position: 'absolute', top: '-300px', opacity: loading ? '0' : '1' }} />
+
+                  <video width="100%" height="606.4" autoPlay loop muted playsInline style={{ position: 'absolute', top: '-300px', opacity: loading ? '0' : '1' }}>
+                    <source src='/Images/hero-video2.mp4' type="video/mp4" />
+                    <track
+                      src="/path/to/captions.vtt"
+                      kind="subtitles"
+                      srcLang="en"
+                      label="English"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
                   <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/hero-second.png'} width="100%" style={{ position: 'absolute', top: '-300px', opacity: loading ? '1' : '0' }} />
                 </Box>
 
