@@ -5,14 +5,11 @@ import ContainerBox from '@/app/components/utility-components/container/Containe
 import Flex from '@/app/components/utility-components/flex/Flex'
 import Text from '@/app/components/utility-components/text/Text'
 import { DEFAULT_COLORS } from '@/app/utils/colors'
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import Image from '@/app/components/utility-components/image/Image'
 import { IMAGE_COLLECTIONS } from '@/app/utils/images'
 import JoinCard from '@/app/components/page-components/cards/JoinCard'
 import useIntersectionAnimation from '@/app/hooks/useIntersectionAnimation'
 import LeftShadow from '@/app/components/page-components/LeftShadow'
 import useIsMobile from '@/app/hooks/useIsMobile'
-import Gif from '../../../assets/images/join-gif1crop.gif'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 interface TargetProps {
@@ -45,8 +42,17 @@ const JoinSection = ({ scrollToTarget }: TargetProps) => {
                             </Box>
                         </Grid>
                         <Grid item lg={8} sm={8} xs={12}>
-                            <Box m={{ xs: '0rem', sm: '4rem' }}>
-                                <Image src={IMAGE_COLLECTIONS.JoinSection} width='100%' />
+                            <Box m={{ xs: '0rem', sm: '4rem' }} borderRadius={'25px'}>
+                                <video width={'100%'} height={'100%'} autoPlay loop playsInline muted style={{borderRadius:'20px'}}>
+                                    <source src='/Images/join-main-video.mp4' type="video/mp4" />
+                                    <track
+                                        src="/path/to/captions.vtt"
+                                        kind="subtitles"
+                                        srcLang="en"
+                                        label="English"
+                                    />
+                                    Your browser does not support the video.
+                                </video>
                             </Box>
                         </Grid>
                     </Grid>

@@ -121,7 +121,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
                   <>
                     <Box left={isTab ? "0px" : "-34px"} top="0rem" position="absolute" sx={{ opacity: loading ? '0' : '0.9', zIndex: 0 }} >
                       <video width={isTab ? "500" : "700"} height={isTab ? "600" : "800"} autoPlay loop playsInline muted >
-                        <source src='/Images/hero-video1.1.mp4' type="video/mp4" />
+                        <source src='/Images/hero-video1.mp4' type="video/mp4" />
                         <track
                           src="/path/to/captions.vtt"
                           kind="subtitles"
