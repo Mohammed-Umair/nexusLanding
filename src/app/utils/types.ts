@@ -36,5 +36,6 @@ export type ComponentProps = {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     onChangeText?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
     type?: 'button' | 'submit' | 'reset';
-    value?: string
+    value?: string;
+    margin?: string;
 }
