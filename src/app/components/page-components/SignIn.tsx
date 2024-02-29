@@ -182,12 +182,12 @@ const SignIn = () => {
             {
                 web3auth?.status == "connected" ?
                 <>
-            <Text color={DEFAULT_COLORS.black} fontFamily='SEN Bold' fontSize='30px' textAlign="center">Connected!</Text>
+            <Text color={DEFAULT_COLORS.black} fontFamily='SEN Bold' fontSize='30px' textAlign="center">Whitelisted!</Text>
             <Box mb="1rem">
                 <Text color={DEFAULT_COLORS.Light} fontSize='15px' textAlign='center' lineHeight='20px'>You Nexus account is connected.</Text>
             </Box>
-            <ButtonWithIcon icon={<IconButton background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}> 
-                <ArrowForwardIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} onClick={() => logout()} >Disconnect
+            <ButtonWithIcon icon={<IconButton hover={false} background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}> 
+                <PowerSettingsNewIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} onClick={() => logout()} >Disconnect
             </ButtonWithIcon>
             </>
                 :
@@ -224,11 +224,11 @@ const SignIn = () => {
 
                 <ButtonWithIcon icon={<IconButton background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}> <ArrowForwardIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} onClick={() => login()} >Continue </ButtonWithIcon>
             </Box>
-            <Text color={DEFAULT_COLORS.Light} fontSize='13px' textAlign='center'>We do not store any personal information</Text>
+           
 
             </>
             }
-
+ <Text color={DEFAULT_COLORS.Light} fontSize='13px' textAlign='center'>We do not store any personal information</Text>
         </Box >
 
     )
