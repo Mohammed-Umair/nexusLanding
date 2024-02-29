@@ -45,7 +45,7 @@ const Main = () => {
       {loading ? (
         <div></div>
       ) : (
-        <>
+        <> 
           <Hero scrollToTarget={scrollToTarget} targetRef={targetRefSign} />
           <LandingSecondary />
           <Scroller />
