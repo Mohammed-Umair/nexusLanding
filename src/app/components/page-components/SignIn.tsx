@@ -136,7 +136,7 @@ const SignIn = () => {
                 web3auth?.status == "connected" ?
                 <>
             <Text color={DEFAULT_COLORS.black} fontFamily='SEN Bold' fontSize='30px' textAlign="center">Connected!</Text>
-            <Box mb="2rem">
+            <Box mb="1rem">
                 <Text color={DEFAULT_COLORS.Light} fontSize='15px' textAlign='center' lineHeight='20px'>You Nexus account is connected.</Text>
             </Box>
             <ButtonWithIcon icon={<IconButton background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}> 
@@ -146,7 +146,7 @@ const SignIn = () => {
                 :
                 <>
             <Text color={DEFAULT_COLORS.black} fontFamily='SEN Bold' fontSize='30px' textAlign="center">Sign up</Text>
-            <Box mb="2rem">
+            <Box mb="1rem">
 
                 <Text color={DEFAULT_COLORS.Light} fontSize='15px' textAlign='center' lineHeight='20px'>Your Nexus experience is one click away</Text>
             </Box>
@@ -169,15 +169,16 @@ const SignIn = () => {
             <Button margin='1rem 0px' fullWidth background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue} border borderColor={DEFAULT_COLORS.Light} onClick={() => setViewMore(!viewMore)}>{viewMore ? 'Show Less' : 'Explore More Login Options'}</Button>
  */}
 
-            <Text color={DEFAULT_COLORS.Light} fontSize='13px' textAlign='center'>We do not store any personal information</Text>
             {/* <Box mt="1rem">
 
                 <Input background={DEFAULT_COLORS.White} border borderColor={DEFAULT_COLORS.Light} color={DEFAULT_COLORS.Light} fullWidth placeholder='Enter Your Email' />
             </Box> */}
-            <Box mt={'1rem'}>
+            <Box mt={'0rem'}>
 
                 <ButtonWithIcon icon={<IconButton background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}> <ArrowForwardIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} onClick={() => login()} >Continue </ButtonWithIcon>
             </Box>
+            <Text color={DEFAULT_COLORS.Light} fontSize='13px' textAlign='center'>We do not store any personal information</Text>
+
             </>
             }
 
