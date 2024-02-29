@@ -104,6 +104,7 @@ const SignIn = () => {
       try {
         const web3authProvider = await web3auth?.connect();
         setProvider(web3authProvider);
+        loginSignup(web3auth,web3authProvider)
       }
       catch (e) {
         console.log(e)
