@@ -36,9 +36,9 @@ const Main = () => {
       setLoading(false);
     }, 10); // Adjust the timeout duration as needed
     return () => clearTimeout(timeout);
-  }, []);
+  }, []); 
 
-
+  
 
   return (
     <>
