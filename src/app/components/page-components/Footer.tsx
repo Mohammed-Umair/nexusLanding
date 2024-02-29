@@ -16,6 +16,8 @@ const Footer = () => {
             </Button>
             <Flex>
                 <Button borderRadius="25px" padding=".6rem 1.2rem">
+                    <a href="https://t.me/NexusLaunchpad" target="_blank">
+
                     <Box sx={{
                         "&:hover": {  // Use "&:hover" instead of ":hover"
                             color: DEFAULT_COLORS.Blue
@@ -24,6 +26,9 @@ const Footer = () => {
                     }}>
                         <TelegramIcon fontSize="small" />
                     </Box>
+                    </a>
+                    <a href="https://twitter.com/NexusLaunchpad" target="_blank">
+
                     <Box sx={{
                         "&:hover": {  // Use "&:hover" instead of ":hover"
                             color: DEFAULT_COLORS.Blue
@@ -31,16 +36,8 @@ const Footer = () => {
                         cursor: 'pointer',
 
                     }}> <XIcon fontSize="small" /></Box>
+                    </a>
 
-                    <Box sx={{
-                        "&:hover": {  // Use "&:hover" instead of ":hover"
-                            color: DEFAULT_COLORS.Blue
-                        },
-                        cursor: 'pointer'
-                    }}>
-
-                        <GoogleIcon fontSize="small" />
-                    </Box>
                 </Button>
             </Flex>
         </Flex>

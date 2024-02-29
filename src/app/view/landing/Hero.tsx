@@ -19,15 +19,17 @@ import GoogleIcon from '@mui/icons-material/Google';
 import useIsBig from "@/app/hooks/useIsBig"
 import { useEffect, useState } from "react"
 import useIsTab from "@/app/hooks/useIsTab"
+import IconButtons from "@mui/material"
 
 
 
 interface ButtonProps {
   scrollToTarget: () => void;
+  scrollToTargetContact: () => void;
   targetRef: React.RefObject<HTMLDivElement>;
 }
 
-const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
+const Hero = ({ scrollToTarget, targetRef,scrollToTargetContact }: ButtonProps) => {
   const isMobile = useIsMobile()
   const isBig = useIsBig()
   const isTab = useIsTab()
@@ -60,7 +62,45 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
                   <Image src={IMAGE_COLLECTIONS.landingsecondary1} width="100%" />
                 </Box>
               </Flex>
+
               <Heading fontSize="50px" fontFamily="SEN bold" color={DEFAULT_COLORS.White} textAlign="center">Leading Launches</Heading>
+
+              <Flex>
+
+
+                <Button borderRadius="25px" padding=".6rem 1.2rem">
+                  <Box sx={{
+                    "&:hover": {  // Use "&:hover" instead of ":hover"
+                      color: DEFAULT_COLORS.Blue
+                    },
+                    cursor: 'pointer',
+                  }} ><EmailIcon fontSize="small" /></Box>
+                </Button>
+
+                <Button borderRadius="25px" padding=".6rem 1.2rem">
+                  <a href="https://t.me/NexusLaunchpad" target="_blank">
+                    <Box sx={{
+                      "&:hover": {  // Use "&:hover" instead of ":hover"
+                        color: DEFAULT_COLORS.Blue
+                      },
+                      cursor: 'pointer',
+                    }}>
+                      <TelegramIcon fontSize="small" />
+
+                    </Box>
+                  </a>
+                  <a href="https://twitter.com/NexusLaunchpad" target="_blank">
+                    <Box sx={{
+                      "&:hover": {  // Use "&:hover" instead of ":hover"
+                        color: DEFAULT_COLORS.Blue
+                      },
+                      cursor: 'pointer',
+
+                    }}> <XIcon fontSize="small" /></Box>
+                  </a>
+                </Button>
+              </Flex>
+
             </>
 
           ) : (
@@ -77,7 +117,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
                 </Flex>
                 <Box mt="5rem" mr="12rem">
                   <Flex>
-                    <Button borderRadius="25px" padding=".6rem 1.2rem">
+                    <Button borderRadius="25px" padding=".6rem 1.2rem"  onClick={() => scrollToTargetContact()}>
                       <Box sx={{
                         "&:hover": {  // Use "&:hover" instead of ":hover"
                           color: DEFAULT_COLORS.Blue
@@ -87,31 +127,26 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
 
                     </Button>
                     <Button borderRadius="25px" padding=".6rem 1.2rem">
-                      <Box sx={{
-                        "&:hover": {  // Use "&:hover" instead of ":hover"
-                          color: DEFAULT_COLORS.Blue
-                        },
-                        cursor: 'pointer',
-                      }}>
-                        <TelegramIcon fontSize="small" />
-                      </Box>
-                      <Box sx={{
-                        "&:hover": {  // Use "&:hover" instead of ":hover"
-                          color: DEFAULT_COLORS.Blue
-                        },
-                        cursor: 'pointer',
+                      <a href="https://t.me/NexusLaunchpad" target="_blank">
+                        <Box sx={{
+                          "&:hover": {  // Use "&:hover" instead of ":hover"
+                            color: DEFAULT_COLORS.Blue
+                          },
+                          cursor: 'pointer',
+                        }}>
+                          <TelegramIcon fontSize="small" />
 
-                      }}> <XIcon fontSize="small" /></Box>
+                        </Box>
+                      </a>
+                      <a href="https://twitter.com/NexusLaunchpad" target="_blank">
+                        <Box sx={{
+                          "&:hover": {  // Use "&:hover" instead of ":hover"
+                            color: DEFAULT_COLORS.Blue
+                          },
+                          cursor: 'pointer',
 
-                      <Box sx={{
-                        "&:hover": {  // Use "&:hover" instead of ":hover"
-                          color: DEFAULT_COLORS.Blue
-                        },
-                        cursor: 'pointer'
-                      }}>
-
-                        <GoogleIcon fontSize="small" />
-                      </Box>
+                        }}> <XIcon fontSize="small" /></Box>
+                      </a>
                     </Button>
                   </Flex>
                 </Box>

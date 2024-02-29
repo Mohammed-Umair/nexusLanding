@@ -14,16 +14,17 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 interface TargetProps {
     scrollToTarget: () => void;
+    targetRef: React.RefObject<HTMLDivElement>;
 }
 
 
 
-const JoinSection = ({ scrollToTarget }: TargetProps) => {
+const JoinSection = ({ scrollToTarget,targetRef }: TargetProps) => {
     const boxRef = useIntersectionAnimation();
     const isMobile = useIsMobile()
     return (
-        <Box mx="10px" my="2rem" ref={boxRef} position="relative" >
-            <Box position="absolute" left="0px" top="0px">
+        <Box mx="10px" my="2rem" ref={boxRef} position="relative">
+            <Box position="absolute" left="0px" top="0px" ref={targetRef}>  
                 <LeftShadow />
             </Box>
             <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isMobile ? "100%" : "95vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }} >

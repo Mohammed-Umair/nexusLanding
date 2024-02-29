@@ -11,10 +11,9 @@ import { IMAGE_COLLECTIONS } from '@/app/utils/images'
 
 interface TargetProps {
     targetRef: React.RefObject<HTMLDivElement>;
-    scrollToTarget: () => void;
 }
 
-const ContactSection = ({ targetRef, scrollToTarget }: TargetProps) => {
+const ContactSection = ({ targetRef }: TargetProps) => {
     const boxRef = useIntersectionAnimation() as RefObject<HTMLDivElement>;
     const isMobile = useIsMobile()
     return (

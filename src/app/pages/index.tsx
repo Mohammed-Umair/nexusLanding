@@ -16,6 +16,7 @@ const Main = () => {
   const [loading, setLoading] = useState(true);
   const targetRef = useRef<HTMLDivElement>(null);
   const targetRefSign = useRef<HTMLDivElement>(null);
+  const targetRefContact = useRef<HTMLDivElement>(null);
 
 
   const scrollToTarget = () => {
@@ -23,10 +24,15 @@ const Main = () => {
       targetRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
+
   const scrollToTargetSign = () => {
     if (targetRefSign.current) {
       targetRefSign.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const scrollToTargetContact = () => {
+    if (targetRefContact.current) {
+      targetRefContact.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -36,25 +42,25 @@ const Main = () => {
       setLoading(false);
     }, 10); // Adjust the timeout duration as needed
     return () => clearTimeout(timeout);
-  }, []); 
+  }, []);
 
-  
+
 
   return (
     <>
       {loading ? (
         <div></div>
       ) : (
-        <> 
-          <Hero scrollToTarget={scrollToTarget} targetRef={targetRefSign} />
+        <>
+          <Hero scrollToTarget={scrollToTarget} scrollToTargetContact={scrollToTargetContact} targetRef={targetRefSign} />
           <LandingSecondary />
           <Scroller />
           <PinSectionCompoent />
-          <JoinSection  scrollToTarget={scrollToTargetSign}/>
-          <ContactSection targetRef={targetRef} scrollToTarget={scrollToTargetSign}/>
+          <JoinSection scrollToTarget={scrollToTargetSign} targetRef={targetRef} />
+          <ContactSection targetRef={targetRefContact} />
           <PartnerSection />
           <LastSection />
-          
+
         </>
       )}
     </>
