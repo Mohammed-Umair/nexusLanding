@@ -11,7 +11,7 @@ import Input from '../utility-components/input/Input';
 import NexusLogo from '../../../assets/images/NexusLogo.svg'
 import IconButton from '../utility-components/buttons/IconButton';
 import { Web3Auth } from "@web3auth/modal";
-import { CHAIN_NAMESPACES, WEB3AUTH_NETWORK } from "@web3auth/base";
+import { CHAIN_NAMESPACES, IProvider, WEB3AUTH_NETWORK, log } from "@web3auth/base";
 import { useEffect, useState } from "react"
 import ButtonWithIcon from '../utility-components/buttons/ButtonWithIcon';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -21,6 +21,7 @@ import useIsMobile from '@/app/hooks/useIsMobile';
 import { SocialIcons } from '@/app/config/SocialLogins'
 import useIsBig from '@/app/hooks/useIsBig';
 import useIsTab from '@/app/hooks/useIsTab';
+import axios from 'axios';
 
 
 const SignIn = () => {
@@ -31,6 +32,7 @@ const SignIn = () => {
     const [provider, setProvider] = useState<any>(null);
     const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
     const isMobile = useIsMobile()
+    const API_URL = process.env.NEXT_PUBLIC_API_URL
 
     useEffect(() => {
       // setWeb3auth(1)
@@ -40,30 +42,32 @@ const SignIn = () => {
         try {
           const web3auth = new Web3Auth({
             clientId,
-            web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_DEVNET, // import {WEB3AUTH_NETWORK} from "@web3auth/base";
+            web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET, // import {WEB3AUTH_NETWORK} from "@web3auth/base";
             chainConfig: {
               chainNamespace: CHAIN_NAMESPACES.EIP155,
               chainId: "0x1",
               rpcTarget: "https://rpc.ankr.com/eth",
             },
             uiConfig: {
-              appName: "Nexus",
-              mode: "light", // light, dark or auto
-              loginMethodsOrder: ["google", "twitter", "facebook", "apple",],
-              logoLight: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
-              logoDark: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
-              defaultLanguage: "en", // en, de, ja, ko, zh, es, fr, pt, nl
-              loginGridCol: 3,
-              primaryButton: "socialLogin", // "externalLogin" | "socialLogin" | "emailLogin"
+            //   appName: "Nexus",
+            //   mode: "light", // light, dark or auto
+            //   loginMethodsOrder: ["google", "twitter", "facebook", "apple",],
+            //   logoLight: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
+            //   logoDark: "https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/Nexus+logo+mark+Dark.svg",
+            //   defaultLanguage: "en", // en, de, ja, ko, zh, es, fr, pt, nl
+            //   loginGridCol: 3,
+            //   primaryButton: "socialLogin", // "externalLogin" | "socialLogin" | "emailLogin"
             },
           });
-          console.log(web3auth);
+        //   console.log(web3auth);
 
           await web3auth.initModal();
           setWeb3auth(web3auth);
 
           if (web3auth.status === "connected") {
             setProvider(web3auth.provider);
+            loginSignup(web3auth,web3auth.provider)
+
             // getUserInfo();
             // getAccounts();
           }
@@ -94,6 +98,7 @@ const SignIn = () => {
       const _isConnected = await isConnected();
       if (_isConnected) {
         // alert("Already loggedin");
+        loginSignup(web3auth,provider)
         return;
       }
       try {
@@ -105,6 +110,47 @@ const SignIn = () => {
       }
 
 
+    }
+
+    const loginSignup = async (_web3auth: Web3Auth | null, _provider: IProvider | null | undefined) => {
+        const userInfo = await _web3auth?.getUserInfo();
+        // const accounts = await provider?.();
+
+        const eth_address:string = await _provider?.request({ method: "eth_accounts" }) || "";
+ 
+        
+        try{
+            let config = {
+            method: "post",
+            url: API_URL + `/login`,            
+            maxBodyLength: Infinity,
+            headers: {
+              "Content-Type": "application/json"
+            },
+            data: {
+                email: userInfo?.email,
+                fullName: userInfo?.name,
+                address: eth_address[0]
+
+            },
+          };
+    
+          axios
+            .request(config)
+            .then((response) => {
+              if (response.data.status === "OK") {
+                 
+              } 
+            })
+            .catch((error) => {
+              
+              console.log("axios", error);
+              // setStatusText("Internal Error");
+            });
+        } catch (e) {
+          console.log(e);
+          
+        }
     }
 
     const logout = async () => {
