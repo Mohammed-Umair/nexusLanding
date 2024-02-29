@@ -44,7 +44,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
       backgroundColor: DEFAULT_COLORS.Blue,
       borderRadius: '15px',
       position: 'relative',
-      height: isBig ? { sm: '98vh', xs: '100%' } : '80vh',
+      height: isBig ? { sm: '100vh', xs: '100%' } : '80vh',
       minHeight: isMobile ? '800px' : '110vh'
     }} m="1rem" ref={targetRef}>
       <Header />

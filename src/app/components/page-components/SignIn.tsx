@@ -19,10 +19,13 @@ import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import { SocialIcons } from '@/app/config/SocialLogins'
+import useIsBig from '@/app/hooks/useIsBig';
+import useIsTab from '@/app/hooks/useIsTab';
 
 
 const SignIn = () => {
     const [viewMore, setViewMore] = useState(false)
+    const isBig = useIsTab()
 
     // const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
     // const [provider, setProvider] = useState<any>(null);
@@ -141,23 +144,24 @@ const SignIn = () => {
                 <Button fullWidth background={DEFAULT_COLORS.Blue}><FacebookIcon /></Button>
                 <Button fullWidth background={DEFAULT_COLORS.Blue}><GitHubIcon /></Button>
             </Flex>
-            <Button margin='1rem 0px' fullWidth background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue} border borderColor={DEFAULT_COLORS.Light} onClick={() => setViewMore(!viewMore)}>Explore More Login Options</Button>
             {
                 viewMore && (
                     <Flex style={{ flexWrap: 'wrap' }} className='social'>
                         {SocialIcons.map((Icon, index) => (
-                            <Button background={DEFAULT_COLORS.Blue} width='120px' key={index}><Icon fontSize='large' /></Button>
+                            <Button background={DEFAULT_COLORS.Blue} width={isBig ? '75px' : '120px'} key={index}><Icon fontSize='large' /></Button>
                         ))}
                     </Flex>
-                )
+                ) 
             }
+            <Button margin='1rem 0px' fullWidth background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue} border borderColor={DEFAULT_COLORS.Light} onClick={() => setViewMore(!viewMore)}>{viewMore ? 'Show Less' : 'Explore More Login Options'}</Button>
+
 
             <Text color={DEFAULT_COLORS.Light} fontSize='13px' textAlign='center'>We do not store any personal information</Text>
-            <Box mt="2rem">
+            <Box mt="1rem">
 
                 <Input background={DEFAULT_COLORS.White} border borderColor={DEFAULT_COLORS.Light} color={DEFAULT_COLORS.Light} fullWidth placeholder='Enter Your Email' />
             </Box>
-            <Box mt={'2rem'}>
+            <Box mt={'1rem'}>
 
                 <ButtonWithIcon icon={<IconButton background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}> <ArrowForwardIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} >Continue </ButtonWithIcon>
             </Box>
