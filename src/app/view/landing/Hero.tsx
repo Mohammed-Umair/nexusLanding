@@ -45,7 +45,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
       borderRadius: '15px',
       position: 'relative',
       height: isBig ? { sm: '100vh', xs: '100%' } : '80vh',
-      minHeight: isMobile ? '800px' : '110vh'
+      minHeight: isMobile ? '100%' : '100vh'
     }} m="1rem" ref={targetRef}>
       <Header />
       <Grid container height="100%">
@@ -119,8 +119,8 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
               {
                 !isMobile && (
                   <>
-                    <Box left={isTab ? "0px" : "-34px"} top="0rem" position="absolute" sx={{ opacity: loading ? '0' : '0.9', zIndex: 0 }} >
-                      <video width={isTab ? "500" : "700"} height={isTab ? "600" : "800"} autoPlay loop playsInline muted >
+                    <Box left={isTab ? "0px" : "-74px"} top="0rem" position="absolute" sx={{ opacity: loading ? '0' : '0.9', zIndex: 0 }} >
+                      <video width={isTab ? "500" : "700"} height={isTab ? "600" : "700"} autoPlay loop playsInline muted >
                         <source src='/Images/hero-video1.mp4' type="video/mp4" />
                         <track
                           src="/path/to/captions.vtt"
