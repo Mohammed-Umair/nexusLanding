@@ -47,7 +47,7 @@ const Hero = ({ scrollToTarget, targetRef,scrollToTargetContact }: ButtonProps) 
       overflow:'hidden',
       borderRadius: '15px',
       position: 'relative',
-      height: isBig ? { sm: '100vh', xs: '100%' } : '80vh',
+      height: isBig ? { sm: '100vh', xs: '100%' } : '960px',
       minHeight: isMobile ? '100%' : '80vh'
     }} m="1rem" ref={targetRef}>
       <Header />
