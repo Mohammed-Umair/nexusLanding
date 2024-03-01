@@ -44,10 +44,11 @@ const Hero = ({ scrollToTarget, targetRef,scrollToTargetContact }: ButtonProps) 
 
     <Box sx={{
       backgroundColor: DEFAULT_COLORS.Blue,
+      overflow:'hidden',
       borderRadius: '15px',
       position: 'relative',
       height: isBig ? { sm: '100vh', xs: '100%' } : '80vh',
-      minHeight: isMobile ? '100%' : '100vh'
+      minHeight: isMobile ? '100%' : '80vh'
     }} m="1rem" ref={targetRef}>
       <Header />
       <Grid container height="100%">
@@ -107,7 +108,7 @@ const Hero = ({ scrollToTarget, targetRef,scrollToTargetContact }: ButtonProps) 
             <Flex style={{ position: 'relative', height: '100%' }} gap="0rem" justifyContent="end">
               <Box position="relative" right="4rem" zIndex={100}>
                 {!isMobile && (
-                  <Heading fontSize="90px" fontFamily="SEN bold" color={DEFAULT_COLORS.White}>Leading  <br /> Launches</Heading>
+                  <Heading fontSize="90px"  fontFamily="SEN bold" color={DEFAULT_COLORS.White}>Leading  <br /> Launches</Heading>
                 )}
                 <Flex style={{ marginTop: '3rem', marginRight: '5rem' }}>
                   <ButtonWithIcon background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.black} borderRadius="30px" icon={

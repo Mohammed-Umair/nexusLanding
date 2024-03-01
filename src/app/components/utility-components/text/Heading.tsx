@@ -18,14 +18,14 @@ const Heading = ({
     // Define font sizes for different breakpoints
     const fontSizes = {
         xs: '35px',
-        sm: isBig ? fontSize : '80px',
+        sm: isBig ? '90px' : fontSize,
     };
 
     return (
         <Typography
             fontSize={fontSizes}
             fontFamily={fontFamily}
-            fontWeight={800}
+            fontWeight={400}
             lineHeight={lineHeight}
             textAlign={textAlign as TypographyProps['textAlign']}
             whiteSpace={lineBrake ? 'nowrap' : 'normal'}

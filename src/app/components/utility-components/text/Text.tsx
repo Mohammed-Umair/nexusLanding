@@ -4,7 +4,7 @@ import { DEFAULT_COLORS } from "../../../utils/colors";
 
 
 const Text = ({
-  fontSize = "20px",
+  fontSize = "25px",
   color,
   fontFamily = "SEN medium",
   maxWidth,

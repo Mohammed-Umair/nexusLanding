@@ -9,6 +9,8 @@ import PartnerSection from '../view/landing/PartnerSection';
 import LastSection from '../view/landing/LastSection';
 import { useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { Box, Container } from '@mui/material';
+import Flex from '../components/utility-components/flex/Flex';
 
 
 
@@ -51,7 +53,8 @@ const Main = () => {
       {loading ? (
         <div></div>
       ) : (
-        <>
+        <Flex>
+        <Box width={'100%'} maxWidth={'1680px'}>
           <Hero scrollToTarget={scrollToTarget} scrollToTargetContact={scrollToTargetContact} targetRef={targetRefSign} />
           <LandingSecondary />
           <Scroller />
@@ -61,7 +64,8 @@ const Main = () => {
           <PartnerSection />
           <LastSection />
 
-        </>
+        </Box>
+        </Flex>
       )}
     </>
   );

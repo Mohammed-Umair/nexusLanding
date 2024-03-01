@@ -15,9 +15,9 @@ const PinnedSection = ({ title, image, description }: PinnedSectionProps) => {
     const isMobile = useIsMobile()
     return (
         <Box my="1rem" className="move-up">
-            <Flex alignItems='start' >
-                <Flex flexDirection="column">
-                    <Image src={image} width='100px' />
+            <Flex alignItems='start' justifyContent='start'>
+                <Flex flexDirection="column" justifyContent='start'> 
+                    <Image src={image} width='80px' />
                     {
                         !isMobile && title !== "Contribution" && (<div className='horizontal-line'></div>)
                     }
@@ -27,7 +27,7 @@ const PinnedSection = ({ title, image, description }: PinnedSectionProps) => {
                     <Box mb="1.5rem">
                         <Text fontSize={isMobile ? '25px' : '35px'} lineHeight='19px'>{title}</Text>
                     </Box>
-                    <Text fontSize='11px' color={DEFAULT_COLORS.Light} lineHeight='17px' maxWidth='300px'>{description}</Text>
+                    <Text fontSize='15px' color={DEFAULT_COLORS.Light} lineHeight='17px' maxWidth='300px'>{description}</Text>
                 </Box>
             </Flex>
         </Box>

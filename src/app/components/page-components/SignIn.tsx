@@ -228,7 +228,7 @@ const SignIn = () => {
 
             </>
             }
- <Text color={DEFAULT_COLORS.Light} fontSize='13px' textAlign='center'>We do not store any personal information</Text>
+ <Text color={DEFAULT_COLORS.Light} fontSize='15px' textAlign='center'>We do not store any personal information</Text>
         </Box >
 
     )
