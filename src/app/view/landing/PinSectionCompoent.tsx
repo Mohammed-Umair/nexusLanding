@@ -10,7 +10,7 @@ import useIsMobile from '@/app/hooks/useIsMobile';
 
 function PinSectionCompoent() {
 
-  const [pinnedImage, setPinnedImage] = React.useState(IMAGE_COLLECTIONS.PinSectionImage)
+  const [pinnedImage, setPinnedImage] = React.useState('/Images/engage-main.svg')
 
   const boxRef = useIntersectionAnimation();
   const isMobile = useIsMobile()
@@ -20,13 +20,13 @@ function PinSectionCompoent() {
       <Box position={'absolute'} right="0px" top="1200px" >
         <RightShadow />
       </Box>
-      <Container maxWidth="lg" sx={{ height: isMobile ? '100%' : '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Flex style={{ height: isMobile ? '100%' : '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Box className="contain" ref={boxRef}>
           <Grid container>
             <Grid item lg={6} sm={6} xs={12}>
               <Flex>
-                <Box p={'2rem'} className="left">
-                  <Image src={pinnedImage} width="100%" />
+                <Box p={isMobile ? '2rem' : '4rem 4rem 0rem 0rem'} className="left">
+                  <Image src={pinnedImage} width="95%" /> 
                 </Box>
               </Flex>
             </Grid>
@@ -35,7 +35,7 @@ function PinSectionCompoent() {
             </Grid>
           </Grid>
         </Box>
-      </Container>
+      </Flex>
     </>
   );
 }

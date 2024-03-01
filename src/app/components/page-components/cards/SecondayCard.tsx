@@ -12,14 +12,15 @@ import { RefObject } from 'react'
 interface ImageProps {
     image: string
     description: string
+    descriptionBold: string
 }
 
-const SecondayCard = ({ image, description }: ImageProps) => {
+const SecondayCard = ({ image, description,descriptionBold }: ImageProps) => {
     const boxRef = useIntersectionAnimation() as RefObject<HTMLDivElement>;
     return (
-        <Container background={DEFAULT_COLORS.Dark_Light} width='100%' maxWidth='400px' borderRadius='35px' ref={boxRef} hover={true}>
+        <Container background={DEFAULT_COLORS.Dark_Light} width='100%' maxWidth='400px' borderRadius='35px' ref={boxRef} hover={true} >
             <Grid container>
-                <Grid item lg={3.5} sm={3.5} xs={3.5}>
+                <Grid item lg={3} sm={3.5} xs={3.5}>
                     <button style={{
                         display: 'flex',
                         justifyContent: 'center',
@@ -40,9 +41,9 @@ const SecondayCard = ({ image, description }: ImageProps) => {
                         <Image src={image} width='40px' />
                     </button>
                 </Grid>
-                <Grid item lg={8.5} sm={8.5} xs={8.5}>
+                <Grid item lg={9} sm={8.5} xs={8.5}>
                     <Flex style={{ width: '100%', height: '100%' }}>
-                        <Text fontSize='20px' lineHeight='25px'>{description}</Text>
+                        <Text fontSize='20px' lineHeight='25px'><span style={{fontFamily:"SEN bold"}}>{descriptionBold}</span>{description}</Text>
                     </Flex>
                 </Grid>
             </Grid>

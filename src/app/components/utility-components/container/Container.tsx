@@ -12,7 +12,7 @@ const Container = forwardRef<HTMLDivElement, ComponentProps & BoxProps>(
       maxWidth,
       background,
       borderRadius = "15px", 
-      padding = "10px",
+      padding = "18px",
       fullWidth,
       hover = false,
       ...otherProps

@@ -17,20 +17,20 @@ const PinnEffects = ({ setPinnedImage }: MyComponentProps) => {
     const onMouse = (num: number) => {
         setHover(num)
         if (num === 1) {
-            setPinnedImage('/Images/pin-main1.png')
+            setPinnedImage('/Images/engage-main.svg')
         } else if (num === 2) {
-            setPinnedImage('/Images/pin-main2.png')
+            setPinnedImage('/Images/snapshot-main.svg')
         }
         else if (num === 3) {
-            setPinnedImage('/Images/pin-main3.png')
+            setPinnedImage('/Images/lottery-main.svg')
         }
         else {
-            setPinnedImage('/Images/pin-main4.png')
+            setPinnedImage('/Images/contribution-main.svg')
         }
     }
     const isMobile = useIsMobile()
     return (
-        <Box p={'2rem'} className="right" >
+        <Box p={isMobile ? '2rem 0rem 2rem 2rem;' : '4rem 4rem 0rem 0rem'} className="right" >
             <Flex flexDirection="column" justifyContent='start' alignItems='start'>
                 {
                     hover === 1 ? (

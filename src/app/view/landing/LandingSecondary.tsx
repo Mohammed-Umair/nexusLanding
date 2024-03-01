@@ -58,7 +58,7 @@ const LandingSecondary = () => {
                 <RightMaskContainer>
                     <img src="Images/blueright.png"></img>
                 </RightMaskContainer> */}
-                <Container maxWidth="lg" sx={{ height: isMobile ? '800px' : '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5rem' }}>
+                <Flex  sx={{ height: isMobile ? '800px' : '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5rem' }}>
                     <Box my={'4rem'} >
                         <Flex flexDirection="column" gap="3rem">
                             <Flex flexDirection={{ sm: 'row', xs: 'column' }} gap={{ sm: '1rem', xs: '0rem' }} style={{marginBottom:'3rem'}}>
@@ -67,13 +67,13 @@ const LandingSecondary = () => {
                             </Flex>
                             <Text color={DEFAULT_COLORS.Light} maxWidth="500px" textAlign="center" lineHeight="25px" fontSize="20px">With a seamless and secure platform, Nexus is redefining the excellence of launches.</Text>
                             <Flex style={{ width: '100%',marginTop:'3rem' }} flexDirection={{ sm: 'row', xs: 'column' }}>
-                                <SecondayCard image={IMAGE_COLLECTIONS.NexusN} description="Community backed launches infused into an innovative platform." />
-                                <SecondayCard image={IMAGE_COLLECTIONS.Hammer} description="Premium experience on all devices with user-friendly interface." />
-                                <SecondayCard image={IMAGE_COLLECTIONS.Settings} description="Perfectly crafted tools for all new launchpad experience." />
+                                <SecondayCard image={IMAGE_COLLECTIONS.NexusN} descriptionBold = "Community backed launches " description="infused into an innovative platform." />
+                                <SecondayCard image={IMAGE_COLLECTIONS.Hammer} descriptionBold = "Premium experience " description="on all devices with user-friendly interface." />
+                                <SecondayCard image={IMAGE_COLLECTIONS.Settings} descriptionBold = "Perfectly crafted tools " description="for all new launchpad experience." />
                             </Flex>
                         </Flex>
                     </Box>
-                </Container>
+                </Flex>
             </MainRelativeContainer>
 
         </>

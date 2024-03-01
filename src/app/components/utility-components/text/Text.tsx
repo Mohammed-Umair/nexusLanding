@@ -1,6 +1,6 @@
 import { Typography, TypographyProps } from "@mui/material";
 import { ComponentProps } from "../../../utils/types";
-import { DEFAULT_COLORS } from "../../../utils/colors";
+
 
 
 const Text = ({

@@ -2,9 +2,10 @@ import { Typography, TypographyProps } from "@mui/material";
 import { ComponentProps } from "../../../utils/types";
 import { DEFAULT_COLORS } from "../../../utils/colors";
 import useIsBig from "@/app/hooks/useIsBig";
+import useIsMobile from "@/app/hooks/useIsMobile";
 
 const Heading = ({
-    fontSize = "60px",
+    fontSize = "75px",
     color,
     fontFamily = "SEN bold",
     lineHeight = "70px",
@@ -13,17 +14,10 @@ const Heading = ({
     children,
     lineBrake
 }: ComponentProps) => {
-    const isBig = useIsBig();
-
-    // Define font sizes for different breakpoints
-    const fontSizes = {
-        xs: '35px',
-        sm: isBig ? '60px' : fontSize,
-    };
-
+    const isMobile = useIsMobile()
     return (
         <Typography
-            fontSize={fontSizes}
+            fontSize={isMobile ? '35px' : fontSize}
             fontFamily={fontFamily}
             fontWeight={400}
             lineHeight={lineHeight}
