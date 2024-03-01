@@ -10,10 +10,10 @@ import { IMAGE_COLLECTIONS } from "@/app/utils/images";
 
 const Footer = () => {
     return (
-        <Flex justifyContent='space-between' style={{ padding: '1rem', position: 'absolute', bottom: '0px', left: '0px', right: '0px', zIndex: '100' }}>
-            <Button background={DEFAULT_COLORS.Blue}>
-                <Image src={IMAGE_COLLECTIONS.NexusIcon} width="100px" />
-            </Button>
+        <Flex justifyContent='space-between' style={{ padding: '2rem', position: 'absolute', bottom: '0px', left: '0px', right: '0px', zIndex: '100' }}>
+          
+                <Image src={IMAGE_COLLECTIONS.NexusIcon} width="100px" /> 
+            
             <Flex>
                 <Button borderRadius="25px" padding=".6rem 1.2rem">
                     <a href="https://t.me/NexusLaunchpad" target="_blank">
