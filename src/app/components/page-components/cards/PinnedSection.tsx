@@ -27,7 +27,7 @@ const PinnedSection = ({ title, image, description }: PinnedSectionProps) => {
                     <Box mb="1.5rem">
                         <Text fontSize={isMobile ? '25px' : '35px'} lineHeight='19px'>{title}</Text>
                     </Box>
-                    <Text fontSize='15px' color={DEFAULT_COLORS.Light} lineHeight='17px' maxWidth='300px'>{description}</Text>
+                    <Text fontSize='15px' color={DEFAULT_COLORS.Light} lineHeight='17px' maxWidth='350px'>{description}</Text>
                 </Box>
             </Flex>
         </Box>

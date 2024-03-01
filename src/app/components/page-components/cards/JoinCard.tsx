@@ -34,16 +34,16 @@ const JoinCard = ({ image, hoverImage, title, description }: JoinCardProps) => {
     }
     return (
 
-        <Container borderRadius='30px' padding='1rem 1.5rem' ref={boxRef} onMouseOver={onMouse} onMouseLeave={offMouse} height={'4.5rem'} fullWidth maxWidth="280px" style={{ margin: '5px' }} hover={true}>
+        <Container borderRadius='30px' padding='1rem 1.5rem' ref={boxRef} onMouseOver={onMouse} onMouseLeave={offMouse} height={'4.5rem'} fullWidth maxWidth="265px" style={{ margin: '5px' }} hover={true}>
             <Flex justifyContent='space-between'>
                 <Flex>
                     <Box width="50px" height="50px" position="relative">
-                        <img src={image} loading='eager' style={{ opacity: hovered ? '0' : '1', position: 'absolute', left: '0px', top: '0px', marginTop: '.5rem', width: '50px', height: '50px' }} />
-                        <img src={hoverImage} loading='eager' style={{ opacity: hovered ? '1' : '0', position: 'absolute', left: '0px', top: '0px', marginTop: '.5rem', width: '50px', height: '50px' }} />
+                        <img src={image} loading='eager' style={{ opacity: hovered ? '0' : '1', position: 'absolute', left: '0px', top: '0px', marginTop: '.2rem', width: '50px', height: '50px' }} />
+                        <img src={hoverImage} loading='eager' style={{ opacity: hovered ? '1' : '0', position: 'absolute', left: '0px', top: '0px', marginTop: '.2rem', width: '50px', height: '50px' }} />
                     </Box>
-                    <Box height="50px">
+                    <Box height="50px" mt={'5px'}>
                         <Text lineHeight='24px' >{title}</Text>
-                        <Text fontSize={isTab ? '12px' : '14px'} color={DEFAULT_COLORS.Light} lineHeight='20px'>{description}</Text>
+                        <Text fontSize={isTab ? '12px' : '14px'} color={DEFAULT_COLORS.Light} lineHeight='20px' maxWidth='150px'>{description}</Text>
                     </Box>
                 </Flex>
                 <Box mt="10px">

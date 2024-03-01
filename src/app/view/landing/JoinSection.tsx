@@ -11,6 +11,7 @@ import useIntersectionAnimation from '@/app/hooks/useIntersectionAnimation'
 import LeftShadow from '@/app/components/page-components/LeftShadow'
 import useIsMobile from '@/app/hooks/useIsMobile'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Heading from '@/app/components/utility-components/text/Heading'
 
 interface TargetProps {
     scrollToTarget: () => void;
@@ -19,24 +20,24 @@ interface TargetProps {
 
 
 
-const JoinSection = ({ scrollToTarget,targetRef }: TargetProps) => {
+const JoinSection = ({ scrollToTarget, targetRef }: TargetProps) => {
     const boxRef = useIntersectionAnimation();
     const isMobile = useIsMobile()
     return (
         <Box mx="10px" my="2rem" ref={boxRef} position="relative">
-            <Box position="absolute" left="0px" top="0px" ref={targetRef}>  
+            <Box position="absolute" left="0px" top="0px" ref={targetRef}>
                 <LeftShadow />
             </Box>
             <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isMobile ? "100%" : "95vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                 <Container maxWidth="xl">
                     <Grid container>
                         <Grid item lg={4} sm={4} xs={12}>
-                            <Box m={{ xs: '1rem', sm: '4rem' }} display={'flex'} justifyContent={'center'} alignItems={{ xs: 'center', sm: 'start' }} flexDirection={'column'}>
+                            <Box m={{ xs: '1rem 1rem 1rem 1rem ', sm: '6rem 4rem 4rem 4rem ' }} display={'flex'} justifyContent={'center'} alignItems={{ xs: 'center', sm: 'start' }} flexDirection={'column'}>
                                 <Flex gap="10px" justifyContent='start' style={{ marginBottom: '1rem' }}>
-                                    <Text textAlign='start' fontSize={isMobile ? '40px' : '55px'} lineBrake>How to</Text>
-                                    <Text textAlign='start' fontSize={isMobile ? '40px' : '55px'} isGradient>Join?</Text>
+                                    <Heading textAlign='start' fontSize={isMobile ? '40px' : '55px'} lineBrake lineHeight='67px'>How to</Heading>
+                                    <Heading textAlign='start' fontSize={isMobile ? '40px' : '55px'} isGradient lineHeight='67px'>Join?</Heading>
                                 </Flex>
-                                <Text textAlign={isMobile ? 'center' : 'start'} fontSize='16px' maxWidth='250px' lineHeight='19px' color={DEFAULT_COLORS.Light}>Within a few clicks you can become a part of Nexus, we’ve made the joining process as easy as it can be.</Text>
+                                <Text textAlign={isMobile ? 'center' : 'start'} fontSize='16px' maxWidth='340px' lineHeight='19px' color={DEFAULT_COLORS.Light}>Within a few clicks you can become a part of Nexus, we’ve made the joining process as easy as it can be.</Text>
                                 <Box mt="3rem">
                                     <ButtonWithIcon icon={<IconButton background={DEFAULT_COLORS.Blue} color={DEFAULT_COLORS.White}><ArrowForwardIcon sx={{ color: DEFAULT_COLORS.White }} /></IconButton>} background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.black} onClick={() => scrollToTarget()}>Join Now</ButtonWithIcon>
                                 </Box>
@@ -44,7 +45,7 @@ const JoinSection = ({ scrollToTarget,targetRef }: TargetProps) => {
                         </Grid>
                         <Grid item lg={8} sm={8} xs={12}>
                             <Box m={{ xs: '0rem', sm: '4rem' }} borderRadius={'25px'}>
-                                <video width={'100%'} height={'100%'} autoPlay loop playsInline muted style={{borderRadius:'20px'}}>
+                                <video width={'100%'} height={'100%'} autoPlay loop playsInline muted style={{ borderRadius: '20px' }}>
                                     <source src='/Images/join-main-video.mp4' type="video/mp4" />
                                     <track
                                         src="/path/to/captions.vtt"
@@ -58,7 +59,7 @@ const JoinSection = ({ scrollToTarget,targetRef }: TargetProps) => {
                         </Grid>
                     </Grid>
                     <Box mb="4rem">
-                        <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'}>
+                        <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'} gap={isMobile ? '0rem' : '2rem'}>
                             <JoinCard image={IMAGE_COLLECTIONS.JoinMini1} hoverImage={IMAGE_COLLECTIONS.JoinGif1} title='Sign up' description='Sign up with socials or manually' />
                             <JoinCard image={IMAGE_COLLECTIONS.JoinMini2} hoverImage={IMAGE_COLLECTIONS.JoinMiniGif2} title='Fill Details' description='Fill in your profile details' />
                             <JoinCard image={IMAGE_COLLECTIONS.JoinMini3} hoverImage={IMAGE_COLLECTIONS.JoinMiniGif3} title='Confirm' description='Confirm your email' />

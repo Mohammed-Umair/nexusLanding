@@ -171,12 +171,12 @@ const SignIn = () => {
             backgroundColor: DEFAULT_COLORS.White,
             color: DEFAULT_COLORS.black,
             width: '100%', 
-            maxWidth: '400px',
+            maxWidth: '350px',
             padding: '2rem',
             borderRadius: '25px',
             margin: '10px',
             marginTop: {
-                xs: '1rem', sm: "4rem"
+                xs: '1rem', sm: "0rem"
             }
         }}>
             {

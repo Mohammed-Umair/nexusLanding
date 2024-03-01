@@ -17,9 +17,9 @@ interface ImageProps {
 const SecondayCard = ({ image, description }: ImageProps) => {
     const boxRef = useIntersectionAnimation() as RefObject<HTMLDivElement>;
     return (
-        <Container background={DEFAULT_COLORS.Dark_Light} width='100%' maxWidth='350px' borderRadius='25px' ref={boxRef} hover={true}>
+        <Container background={DEFAULT_COLORS.Dark_Light} width='100%' maxWidth='400px' borderRadius='35px' ref={boxRef} hover={true}>
             <Grid container>
-                <Grid item lg={4} sm={4} xs={4}>
+                <Grid item lg={3.5} sm={3.5} xs={3.5}>
                     <button style={{
                         display: 'flex',
                         justifyContent: 'center',
@@ -31,16 +31,16 @@ const SecondayCard = ({ image, description }: ImageProps) => {
                         whiteSpace: 'nowrap',
                         zIndex: 1000,
                         background: DEFAULT_COLORS.Blue,
-                        borderRadius: '15px',
+                        borderRadius: '25px',
                         padding: '2rem 1.3rem',
                         border: 'none',
                         // boxShadow: '0px 4px 92.80000305175781px -7px #0879FF';
-                        boxShadow:'0px 4px 92.80000305175781px -7px #0879FF'
+                        boxShadow:'0px 4px 92.80000305175781px 1px #0879FF'
                     }}>
                         <Image src={image} width='40px' />
                     </button>
                 </Grid>
-                <Grid item lg={8} sm={8} xs={8}>
+                <Grid item lg={8.5} sm={8.5} xs={8.5}>
                     <Flex style={{ width: '100%', height: '100%' }}>
                         <Text fontSize='20px' lineHeight='25px'>{description}</Text>
                     </Flex>

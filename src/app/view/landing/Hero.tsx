@@ -29,7 +29,7 @@ interface ButtonProps {
   targetRef: React.RefObject<HTMLDivElement>;
 }
 
-const Hero = ({ scrollToTarget, targetRef,scrollToTargetContact }: ButtonProps) => {
+const Hero = ({ scrollToTarget, targetRef, scrollToTargetContact }: ButtonProps) => {
   const isMobile = useIsMobile()
   const isBig = useIsBig()
   const isTab = useIsTab()
@@ -44,71 +44,83 @@ const Hero = ({ scrollToTarget, targetRef,scrollToTargetContact }: ButtonProps) 
 
     <Box sx={{
       backgroundColor: DEFAULT_COLORS.Blue,
-      overflow:'hidden',
+      overflow: 'hidden',
       borderRadius: '15px',
       position: 'relative',
-      height: isBig ? { sm: '100vh', xs: '100%' } : '960px',
-      minHeight: isMobile ? '100%' : '80vh'
+      height: '100%',
+      minHeight: isMobile ? '100%' : '860px'
     }} m="1rem" ref={targetRef}>
       <Header />
-      <Grid container height="100%">
-        <Grid item lg={6} sm={6} xs={12} height="100%">
-          {isMobile ? (
-            <>
-              <Flex>
-                <Box left='0rem' top="0rem">
-                  <Image src={IMAGE_COLLECTIONS.landingMain} width="100%" />
+      {isMobile ? (
+        <>
+          <Flex>
+            <Box left='0rem' top="0rem">
+              <Image src={IMAGE_COLLECTIONS.landingMain} width="100%" />
+            </Box>
+            <Box left='0rem' top="0rem">
+              <Image src={IMAGE_COLLECTIONS.landingsecondary1} width="100%" />
+            </Box>
+          </Flex>
+
+          <Heading fontSize="50px" fontFamily="SEN bold" color={DEFAULT_COLORS.White} textAlign="center">Leading Launches</Heading>
+
+          <Flex>
+
+
+            <Button borderRadius="25px" padding=".6rem 1.2rem">
+              <Box sx={{
+                "&:hover": {  // Use "&:hover" instead of ":hover"
+                  color: DEFAULT_COLORS.Blue
+                },
+                cursor: 'pointer',
+              }} ><EmailIcon fontSize="small" /></Box>
+            </Button>
+
+            <Button borderRadius="25px" padding=".6rem 1.2rem">
+              <a href="https://t.me/NexusLaunchpad" target="_blank">
+                <Box sx={{
+                  "&:hover": {  // Use "&:hover" instead of ":hover"
+                    color: DEFAULT_COLORS.Blue
+                  },
+                  cursor: 'pointer',
+                }}>
+                  <TelegramIcon fontSize="small" />
+
                 </Box>
-                <Box left='0rem' top="0rem">
-                  <Image src={IMAGE_COLLECTIONS.landingsecondary1} width="100%" />
-                </Box>
-              </Flex>
+              </a>
+              <a href="https://twitter.com/NexusLaunchpad" target="_blank">
+                <Box sx={{
+                  "&:hover": {  // Use "&:hover" instead of ":hover"
+                    color: DEFAULT_COLORS.Blue
+                  },
+                  cursor: 'pointer',
 
-              <Heading fontSize="50px" fontFamily="SEN bold" color={DEFAULT_COLORS.White} textAlign="center">Leading Launches</Heading>
+                }}> <XIcon fontSize="small" /></Box>
+              </a>
+            </Button>
+          </Flex>
+          <Flex>
+            <SignIn />
+          </Flex>
+        </>
 
-              <Flex>
-
-
-                <Button borderRadius="25px" padding=".6rem 1.2rem">
-                  <Box sx={{
-                    "&:hover": {  // Use "&:hover" instead of ":hover"
-                      color: DEFAULT_COLORS.Blue
-                    },
-                    cursor: 'pointer',
-                  }} ><EmailIcon fontSize="small" /></Box>
-                </Button>
-
-                <Button borderRadius="25px" padding=".6rem 1.2rem">
-                  <a href="https://t.me/NexusLaunchpad" target="_blank">
-                    <Box sx={{
-                      "&:hover": {  // Use "&:hover" instead of ":hover"
-                        color: DEFAULT_COLORS.Blue
-                      },
-                      cursor: 'pointer',
-                    }}>
-                      <TelegramIcon fontSize="small" />
-
-                    </Box>
-                  </a>
-                  <a href="https://twitter.com/NexusLaunchpad" target="_blank">
-                    <Box sx={{
-                      "&:hover": {  // Use "&:hover" instead of ":hover"
-                        color: DEFAULT_COLORS.Blue
-                      },
-                      cursor: 'pointer',
-
-                    }}> <XIcon fontSize="small" /></Box>
-                  </a>
-                </Button>
-              </Flex>
-
-            </>
-
-          ) : (
-            <Flex style={{ position: 'relative', height: '100%' }} gap="0rem" justifyContent="end">
-              <Box position="relative" right="4rem" zIndex={100}>
+      ) : (
+        <Box position={'relative'}>
+          <video autoPlay loop playsInline muted className="video-content">
+            <source src='/Images/hero-bg5.mp4' type="video/mp4" />
+            <track
+              src="/path/to/captions.vtt"
+              kind="subtitles"
+              srcLang="en"
+              label="English"
+            />
+            Your browser does not support the video.
+          </video>
+          <Box className="hero-centered-element">
+            <Flex width="100%" style={{marginLeft:'8rem'}}>
+              < Box position="relative" zIndex={100} >
                 {!isMobile && (
-                  <Heading fontSize="90px"  fontFamily="SEN bold" color={DEFAULT_COLORS.White}>Leading  <br /> Launches</Heading>
+                  <Typography fontSize="90px" fontFamily="SEN bold" color={DEFAULT_COLORS.White} lineHeight={'80px'}>Leading  <br /> Launches.</Typography>
                 )}
                 <Flex style={{ marginTop: '3rem', marginRight: '5rem' }}>
                   <ButtonWithIcon background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.black} borderRadius="30px" icon={
@@ -118,7 +130,7 @@ const Hero = ({ scrollToTarget, targetRef,scrollToTargetContact }: ButtonProps) 
                 </Flex>
                 <Box mt="5rem" mr="12rem">
                   <Flex>
-                    <Button borderRadius="25px" padding=".6rem 1.2rem"  onClick={() => scrollToTargetContact()}>
+                    <Button borderRadius="25px" padding=".6rem 1.2rem" onClick={() => scrollToTargetContact()}>
                       <Box sx={{
                         "&:hover": {  // Use "&:hover" instead of ":hover"
                           color: DEFAULT_COLORS.Blue
@@ -151,67 +163,32 @@ const Hero = ({ scrollToTarget, targetRef,scrollToTargetContact }: ButtonProps) 
                     </Button>
                   </Flex>
                 </Box>
-              </Box>
-              {
-                !isMobile && (
-                  <>
-                    <Box left={isTab ? "0px" : "-74px"} top="0rem" position="absolute" sx={{ opacity: loading ? '0' : '0.9', zIndex: 0 }} >
-                      <video width={isTab ? "500" : "700"} height={isTab ? "600" : "700"} autoPlay loop playsInline muted >
-                        <source src='/Images/hero-video1.mp4' type="video/mp4" />
-                        <track
-                          src="/path/to/captions.vtt"
-                          kind="subtitles"
-                          srcLang="en"
-                          label="English"
-                        />
-                        Your browser does not support the video.
-                      </video>
-                    </Box>
-                    <Box left='0rem' top="0rem" position="absolute" sx={{ opacity: loading ? '0.8' : '0' }} >
-                      <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/hero-main-png.png'} width="85%" />
-                    </Box>
-                  </>
+              </Box >
 
-                )
-              }
+              <SignIn />
+            </Flex>
 
-            </Flex >
-          )}
+          </Box>
 
-        </Grid>
-        <Grid item lg={6} sm={6} xs={12} height="100%">
-          <Flex justifyContent="end" style={{ position: 'relative', height: '100%' }} >
-            <SignIn />
-            {!isMobile && (
-              <Box position={"relative"}>
-                <Box width="250px" position="relative">
-
-                  <video width="100%" height="606.4" autoPlay loop muted playsInline style={{ position: 'absolute', top: '-300px', opacity: loading ? '0' : '1' }}>
-                    <source src='/Images/hero-video2.mp4' type="video/mp4" />
-                    <track
-                      src="/path/to/captions.vtt"
-                      kind="subtitles"
-                      srcLang="en"
-                      label="English"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
-                  <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/hero-second.png'} width="100%" style={{ position: 'absolute', top: '-300px', opacity: loading ? '1' : '0' }} />
-                </Box>
+        </Box>
+      )}
 
 
 
-                <Box position="absolute" bottom="-20rem" right="0px">
-                  <Image src={IMAGE_COLLECTIONS.SwitchBoard} width="250px" />
-                </Box>
-              </Box>
-            )}
-          </Flex>
-        </Grid>
-      </Grid>
     </Box>
 
   )
 }
 
 export default Hero
+
+
+
+
+
+
+
+
+
+
+

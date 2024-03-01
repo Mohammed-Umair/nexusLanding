@@ -54,17 +54,17 @@ const Main = () => {
         <div></div>
       ) : (
         <Flex>
-        <Box width={'100%'} maxWidth={'1680px'}>
-          <Hero scrollToTarget={scrollToTarget} scrollToTargetContact={scrollToTargetContact} targetRef={targetRefSign} />
-          <LandingSecondary />
-          <Scroller />
-          <PinSectionCompoent />
-          <JoinSection scrollToTarget={scrollToTargetSign} targetRef={targetRef} />
-          <ContactSection targetRef={targetRefContact} />
-          <PartnerSection />
-          <LastSection />
+          <Box width={'100%'} maxWidth={'1680px'}>
+            <Hero scrollToTarget={scrollToTarget} scrollToTargetContact={scrollToTargetContact} targetRef={targetRefSign} />
+            <LandingSecondary />
+            <Scroller />
+            <PinSectionCompoent />
+            <JoinSection scrollToTarget={scrollToTargetSign} targetRef={targetRef} />
+            <ContactSection targetRef={targetRefContact} />
+            <PartnerSection />
+            <LastSection />
 
-        </Box>
+          </Box>
         </Flex>
       )}
     </>

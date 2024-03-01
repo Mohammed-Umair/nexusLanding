@@ -25,8 +25,8 @@ const ContactSection = ({ targetRef }: TargetProps) => {
                         <Flex flexDirection='column' gap='0px'>
                             <Heading color={DEFAULT_COLORS.White} lineHeight={isMobile ? '40px' : '65px'} fontSize='60px'>Ready To</Heading>
                             <Heading color={DEFAULT_COLORS.White} lineHeight={isMobile ? '40px' : '65px'} isGradient fontSize='60px'>Be Partners?</Heading>
-                            <Box mt="4rem" className="move-up-down">
-                                <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/contact-main.png'} width='100%' />
+                            <Box mt="4rem" ml={'4rem'} className="move-up-down">
+                                <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/contact-main.png'} width='80%' />
                             </Box>
                         </Flex>
                     </Grid>

@@ -24,12 +24,12 @@ const PartnerSection = () => {
             </Box>
             <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isMobile ? '100%' : '97vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Container maxWidth="xl" >
-                    <Grid container my={'4rem'} sx={{}}>
+                    <Grid container my={'4rem'} >
                         <Grid item lg={6} sm={6} xs={12}>
                             <Box m={{ xs: '0rem', sm: '4rem' }}>
                                 <Flex flexDirection='column'>
                                     <Heading isGradient>Our Partners</Heading>
-                                    <Text fontSize='12px' color={DEFAULT_COLORS.Light} maxWidth='250px' textAlign='center' lineHeight='19px'>Our esteemed partners share our vision. Together, we’re creating an ecosystem that propels innovation and success.</Text>
+                                    <Text fontSize='18px' color={DEFAULT_COLORS.Light} maxWidth='360px' textAlign='center' lineHeight='19px'>Our esteemed partners share our vision. Together, we’re creating an ecosystem that propels innovation and success.</Text>
                                     <PartnerLogoSection />
                                 </Flex>
                             </Box>

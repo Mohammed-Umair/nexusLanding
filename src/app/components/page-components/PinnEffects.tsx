@@ -29,7 +29,7 @@ const PinnEffects = ({ setPinnedImage }: MyComponentProps) => {
     }
     const isMobile = useIsMobile()
     return (
-        <Box p={'2rem'} className="right" ml={isMobile ? '0rem' : '4rem'}>
+        <Box p={'2rem'} className="right" ml={isMobile ? '0rem' : '2rem'}>
             <Flex flexDirection="column" justifyContent='start' alignItems='start'>
                 {
                     hover === 1 ? (

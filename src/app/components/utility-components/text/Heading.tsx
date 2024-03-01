@@ -18,7 +18,7 @@ const Heading = ({
     // Define font sizes for different breakpoints
     const fontSizes = {
         xs: '35px',
-        sm: isBig ? '90px' : fontSize,
+        sm: isBig ? '60px' : fontSize,
     };
 
     return (
