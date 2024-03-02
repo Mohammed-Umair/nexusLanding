@@ -107,7 +107,7 @@ const Hero = ({ scrollToTarget, targetRef, scrollToTargetContact }: ButtonProps)
       ) : (
         <Box position={'relative'}>
           <video autoPlay loop playsInline muted className="video-content">
-            <source src='/Images/hero-bg5.mp4' type="video/mp4" />
+            <source src='/Images/hero-bg.mp4' type="video/mp4" />
             <track
               src="/path/to/captions.vtt"
               kind="subtitles"
@@ -122,13 +122,13 @@ const Hero = ({ scrollToTarget, targetRef, scrollToTargetContact }: ButtonProps)
                 {!isMobile && (
                   <Typography fontSize="90px" fontFamily="SEN bold" color={DEFAULT_COLORS.White} lineHeight={'80px'}>Leading  <br /> Launches.</Typography>
                 )}
-                <Flex style={{ marginTop: '3rem', marginRight: '5rem' }}>
+                <Flex style={{ marginTop: '5rem', marginRight: '5rem' }}>
                   <ButtonWithIcon background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.black} borderRadius="30px" icon={
                     <IconButton background={DEFAULT_COLORS.Blue} color={DEFAULT_COLORS.White}><ArrowForwardIcon sx={{ color: DEFAULT_COLORS.White }} /></IconButton>
                   } onClick={() => scrollToTarget()}>How to join?</ButtonWithIcon>
                   <Button background={DEFAULT_COLORS.Blue} border borderColor={DEFAULT_COLORS.White} >Read Docs</Button>
                 </Flex>
-                <Box mt="5rem" mr="12rem">
+                <Box mt="10rem" mr="12rem">
                   <Flex>
                     <Button borderRadius="25px" padding=".6rem 1.2rem" onClick={() => scrollToTargetContact()}>
                       <Box sx={{

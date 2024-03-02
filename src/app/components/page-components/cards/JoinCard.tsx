@@ -42,7 +42,9 @@ const JoinCard = ({ image, hoverImage, title, description }: JoinCardProps) => {
                         <img src={hoverImage} loading='eager' style={{ opacity: hovered ? '1' : '0', position: 'absolute', left: '0px', top: '0px', marginTop: '.2rem', width: '50px', height: '50px' }} />
                     </Box>
                     <Box height="50px" mt={'5px'}>
-                        <Text lineHeight='24px' style={{marginBottom:'2rem'}}>{title}</Text>
+                        <Box mb={'5px'}>
+                        <Text lineHeight='24px' >{title}</Text>
+                        </Box>
                         <Text fontSize={isTab ? '12px' : '14px'} color={DEFAULT_COLORS.Light} lineHeight='20px' maxWidth='150px'>{description}</Text>
                     </Box>
                 </Flex>

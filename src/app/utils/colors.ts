@@ -13,7 +13,7 @@ type Color = {
 export const DEFAULT_COLORS: Color = {
     Blue: "#0075FF",
     White: '#FFFFFF',
-    Light: '#ffffffbf',
+    Light: '#ffffffb3',
     DimWhite: '#828080',
     black: '#000000',
     Text_Gradient: '#0075FF, #FFFFFF',

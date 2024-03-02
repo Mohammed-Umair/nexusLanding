@@ -28,7 +28,7 @@ const PartnerSection = () => {
                         <Grid item lg={6} sm={6} xs={12}>
                             <Box m={{ xs: '0rem', sm: '4rem' }}>
                                 <Flex flexDirection='column'>
-                                    <Heading isGradient>Our Partners</Heading>
+                                    <Heading isGradient textAlign={'center'}>Our Partners</Heading>
                                     <Text fontSize='18px' color={DEFAULT_COLORS.Light} maxWidth='360px' textAlign='center' lineHeight='19px'>Our esteemed partners share our vision. Together, we’re creating an ecosystem that propels innovation and success.</Text>
                                     <PartnerLogoSection />
                                 </Flex>

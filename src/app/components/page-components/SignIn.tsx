@@ -184,7 +184,7 @@ const SignIn = () => {
                 <>
             <Text color={DEFAULT_COLORS.black} fontFamily='SEN Bold' fontSize='30px' textAlign="center">Whitelisted!</Text>
             <Box mb="1rem">
-                <Text color={DEFAULT_COLORS.Light} fontSize='15px' textAlign='center' lineHeight='20px'>You Nexus account is connected.</Text>
+                <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' textAlign='center' lineHeight='20px' fontFamily='SEN Bold'>You Nexus account is connected.</Text>
             </Box>
             <ButtonWithIcon icon={<IconButton hover={false} background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}> 
                 <PowerSettingsNewIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} onClick={() => logout()} >Disconnect
@@ -195,7 +195,7 @@ const SignIn = () => {
             <Text color={DEFAULT_COLORS.black} fontFamily='SEN Bold' fontSize='30px' textAlign="center">Sign up</Text>
             <Box mb="1rem">
 
-                <Text color={DEFAULT_COLORS.Light} fontSize='15px' textAlign='center' lineHeight='20px'>Your Nexus experience is one click away</Text>
+                <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' fontFamily='SEN Bold' textAlign='center' lineHeight='20px'>Your Nexus experience is one click away</Text>
             </Box>
             {/* <Button fullWidth background={DEFAULT_COLORS.Blue}><GoogleIcon /> Continue with Google</Button>
 
@@ -228,7 +228,7 @@ const SignIn = () => {
 
             </>
             }
- <Text color={DEFAULT_COLORS.Light} fontSize='15px' textAlign='center'>We do not store any personal information</Text>
+ <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' textAlign='center' fontFamily='SEN Bold'>We do not store any personal information</Text>
         </Box >
 
     )
