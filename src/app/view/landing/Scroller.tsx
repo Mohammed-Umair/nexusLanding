@@ -12,7 +12,7 @@ const Scroller = () => {
 
 
     return (
-        <div style={{ height: '10vh', position: 'relative', bottom: '5rem' }}>
+        <div style={{ height: '10vh', position: 'relative', bottom: '0rem' }}>
             <Box my={'10rem'}>
 
                 <div className='scroller-container' >

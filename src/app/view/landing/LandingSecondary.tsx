@@ -61,7 +61,7 @@ const LandingSecondary = () => {
                 <Flex  sx={{ height: isMobile ? '800px' : '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5rem' }}>
                     <Box my={'4rem'} >
                         <Flex flexDirection="column" gap="3rem">
-                            <Flex flexDirection={{ sm: 'row', xs: 'column' }} gap={{ sm: '1rem', xs: '0rem' }} style={{marginBottom:'3rem'}}>
+                            <Flex flexDirection={{ sm: 'row', xs: 'column' }} gap={{ sm: '1rem', xs: '0rem' }} style={{marginBottom:'3rem', marginTop:'7rem'}}>
                                 <Heading color={DEFAULT_COLORS.White} lineHeight={isMobile ? '35px' : '55px'}>What Makes us </Heading>
                                 <Heading color={DEFAULT_COLORS.Blue} lineHeight={isMobile ? '35px' : '55px'}>Better</Heading>
                             </Flex>
