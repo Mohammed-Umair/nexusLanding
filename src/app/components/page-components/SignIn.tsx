@@ -329,13 +329,15 @@ const SignIn = () => {
               </Text>
 
             </Box>
+            {
+              profile &&
             <Box mb="1rem" style={{ cursor: "pointer" }} onClick={() => copy(window.location.protocol + '//' + window.location.host + "?refId=" + profile?._id)} >
-
               <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' fontFamily='SEN Bold' textAlign='center' lineHeight='20px'>
                 Referal Code: {profile?._id}  <CopyAll style={{ cursor: "pointer", verticalAlign: "middle", fontSize: "14px" }} />
               </Text>
 
             </Box>
+            }
             <ButtonWithIcon icon={<IconButton hover={false} background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}>
               <PowerSettingsNewIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} onClick={() => logout()} >Disconnect
             </ButtonWithIcon>
