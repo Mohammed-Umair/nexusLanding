@@ -107,6 +107,21 @@ const SignIn = () => {
 
   }, []);
 
+  
+  useEffect(() => {
+    try{
+
+    if(web3auth){
+      loginSignup(web3auth, web3auth?.provider);
+    }
+  }
+  catch(e){
+    console.log(e);
+  }
+
+
+  },[web3auth?.status])
+
 
   useEffect(() => {
     getUser()
@@ -272,8 +287,8 @@ const SignIn = () => {
     if (_isConnected) {
       await web3auth?.logout();
       setProvider(null);
-      // localStorage.clear()
-      // setProfile(false)
+      localStorage.clear()
+      setProfile(false)
       return;
     }
 
