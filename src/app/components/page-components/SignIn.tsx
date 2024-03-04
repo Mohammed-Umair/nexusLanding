@@ -54,6 +54,7 @@ const SignIn = () => {
   const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
   const isMobile = useIsMobile()
   const API_URL = process.env.NEXT_PUBLIC_API_URL
+  const access_token = localStorage.getItem('access_token')
 
   useEffect(() => {
     // setWeb3auth(1)
@@ -109,7 +110,7 @@ const SignIn = () => {
 
   useEffect(() => {
     getUser()
-  }, [])
+  }, [access_token])
 
   useEffect(() => {
     if (refId) {
@@ -157,7 +158,6 @@ const SignIn = () => {
 
   const getUser = async () => {
 
-    const access_token = localStorage.getItem('access_token')
 
     try {
       let config = {
