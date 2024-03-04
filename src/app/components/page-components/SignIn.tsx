@@ -43,7 +43,7 @@ const SignIn = () => {
   const [viewMore, setViewMore] = useState(false)
   const isBig = useIsTab()
   const searchParams = useSearchParams()
-  const [isModal, setIsmodal] = useState<Boolean>(false);
+  const [isModal, setIsmodal] = useState<boolean>(false);
   const refId = searchParams.get('refId');
 
   const [referrals, setReferrals] = useState<any>([]);
@@ -284,9 +284,7 @@ const SignIn = () => {
     setIsmodal(false)
   }
 
-  const open = () => {
-    setIsmodal(true)
-  }
+  
 
   return (
     <Box sx={{
@@ -383,8 +381,8 @@ const SignIn = () => {
 
       {
         isModal &&
-        <Modal
-          open={isModal}
+        <Modal 
+        open={isModal}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
