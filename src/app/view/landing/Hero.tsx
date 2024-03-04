@@ -107,7 +107,7 @@ const Hero = ({ scrollToTarget, targetRef, scrollToTargetContact }: ButtonProps)
       ) : (
         <Box position={'relative'}>
           <video autoPlay loop playsInline muted className="video-content">
-            <source src='/Images/hero-bg3.mp4' type="video/mp4" /> 
+            <source src='/Images/hero-bg.mp4' type="video/mp4" />
             <track
               src="/path/to/captions.vtt"
               kind="subtitles"
