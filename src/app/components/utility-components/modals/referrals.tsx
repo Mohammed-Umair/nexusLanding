@@ -140,6 +140,7 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
 
   const URL = "/?refId=" + _id
   const TitleLink = window.location.protocol + '//' + window.location.host
+  const FullURL = window.location.protocol + '//' + window.location.host + "?refId=" + _id
 
 
   const isMobile = useIsMobile()
@@ -257,15 +258,15 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                 gap: '2rem'
               }}>
                 <TwitterShareButton
-                  url={URL}
-                  title={TitleLink}
+                  url={FullURL}
+                  title={'Use my refferal code: '}
                   className="Demo__some-network__share-button"
                 >
                   <XIcon size={42} round />
                 </TwitterShareButton>
                 <TelegramShareButton
-                  url={TitleLink +  URL}
-                  title={'Refferal code'}
+                  url={TitleLink + URL}
+                  title={'Use my refferal code: '}
                   className="Demo__some-network__share-button"
                 >
                   <TelegramIcon size={42} round />
@@ -278,6 +279,13 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                 >
                   <WhatsappIcon size={42} round />
                 </WhatsappShareButton>
+                <WeiboShareButton
+                  url={URL}
+                  title={TitleLink}
+                  className="Demo__some-network__share-button"
+                >
+                  <WeiboIcon size={42} round />
+                </WeiboShareButton>
               </Box>
             </Box>
 
