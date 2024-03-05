@@ -84,7 +84,7 @@ const Hero = ({ scrollToTarget, targetRef, scrollToTargetContact }: ButtonProps)
                   },
                   cursor: 'pointer',
                 }}>
-                  <TelegramIcon fontSize="small" />
+                  <TelegramIcon fontSize="small" /> 
 
                 </Box>
               </a>
