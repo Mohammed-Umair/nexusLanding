@@ -25,16 +25,25 @@ import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
 import { Boy, CopyAll, DisabledByDefault, List, Man, Man2Rounded, Man3, Person, VerifiedUserSharp } from '@mui/icons-material';
 import ReferralModal from '../utility-components/modals/referrals';
+import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 'auto',
-  bgcolor: 'background.paper', 
-  boxShadow: 24, 
-  borderColor: "#0081ff"
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  borderColor: "white",
+  padding: '10px',
+  borderRadius: '15px',
+  width: '100%',
+  maxWidth: '1000px',
+  '@media (max-width: 768px)': { // Example media query for screens up to 768px wide
+    width: '90%', // Adjusting width for smaller screens
+    maxWidth: '90%' // Adjusting maxWidth for smaller screens
+  }
 };
 
 
@@ -54,11 +63,12 @@ const SignIn = () => {
   const clientId: any = process.env.NEXT_PUBLIC_WEB3AUTH_CLIENTID
   const isMobile = useIsMobile()
   const API_URL = process.env.NEXT_PUBLIC_API_URL
-  const [access_token,setAccessToken] = useState(localStorage.getItem('access_token'));
+  const [access_token, setAccessToken] = useState(localStorage.getItem('access_token'));
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     // setWeb3auth(1)
-    // console.log(web3auth);
+    // console.log(web3auth); 
 
     const init = async () => {
       try {
@@ -107,20 +117,20 @@ const SignIn = () => {
 
   }, []);
 
-  
+
   useEffect(() => {
-    try{
+    try {
 
-    if(web3auth){
-      loginSignup(web3auth, web3auth?.provider);
+      if (web3auth) {
+        loginSignup(web3auth, web3auth?.provider);
+      }
     }
-  }
-  catch(e){
-    console.log(e);
-  }
+    catch (e) {
+      console.log(e);
+    }
 
 
-  },[web3auth?.status])
+  }, [web3auth?.status])
 
 
   useEffect(() => {
@@ -135,6 +145,8 @@ const SignIn = () => {
 
   const copy = (text: any) => {
     navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => { setCopied(false) }, 10000)
   }
 
   const getReferer = async () => {
@@ -300,7 +312,7 @@ const SignIn = () => {
     setIsmodal(false)
   }
 
-  
+
 
   return (
     <Box sx={{
@@ -325,18 +337,18 @@ const SignIn = () => {
             <Box mb="1rem" style={{ cursor: "pointer" }} onClick={() => setIsmodal(true)} >
 
               <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' fontFamily='SEN Bold' textAlign='center' lineHeight='20px'>
-                Your Referals: {referrals.length}  <Person style={{ cursor: "pointer", verticalAlign: "top", fontSize: "19px" }} />
+                Your Referrals: {referrals.length}  <Person style={{ cursor: "pointer", verticalAlign: "top", fontSize: "19px" }} />
               </Text>
 
             </Box>
             {
               profile &&
-            <Box mb="1rem" style={{ cursor: "pointer" }} onClick={() => copy(window.location.protocol + '//' + window.location.host + "?refId=" + profile?._id)} >
-              <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' fontFamily='SEN Bold' textAlign='center' lineHeight='20px'>
-                Referal Code: {profile?._id}  <CopyAll style={{ cursor: "pointer", verticalAlign: "middle", fontSize: "14px" }} />
-              </Text>
+              <Box mb="1rem" style={{ cursor: "pointer" }} onClick={() => copy(window.location.protocol + '//' + window.location.host + "?refId=" + profile?._id)} >
+                <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' fontFamily='SEN Bold' textAlign='center' lineHeight='20px'>
+                  Referral Code: {profile?._id} {copied ? <FileDownloadDoneIcon style={{ cursor: "pointer", verticalAlign: "middle", fontSize: "14px" }} /> : <CopyAll style={{ cursor: "pointer", verticalAlign: "middle", fontSize: "14px" }} />}
+                </Text>
 
-            </Box>
+              </Box>
             }
             <ButtonWithIcon icon={<IconButton hover={false} background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}>
               <PowerSettingsNewIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} onClick={() => logout()} >Disconnect
@@ -385,7 +397,17 @@ const SignIn = () => {
             <Box mt={'0rem'}>
               {
                 errorText && refId ?
-                  <ButtonWithIcon style={{ "cursor": "not-allowed" }} icon={<IconButton background={"red"} color={DEFAULT_COLORS.Blue}   > <DisabledByDefault sx={{ color: DEFAULT_COLORS.White }} /></IconButton>} fullWidth background={"red"}  >Please try after sometime.</ButtonWithIcon>
+                  <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    background: DEFAULT_COLORS.black,
+                    borderRadius: '35px',
+                    padding: '5px 5px 5px 15px'
+                  }}>
+                    <Text lineHeight='15px' fontSize='15px' color={DEFAULT_COLORS.White}>Please try a valid referral code</Text>
+                    <IconButton hover={false} background={'red'} color={DEFAULT_COLORS.Blue}   > <CloseIcon sx={{ color: DEFAULT_COLORS.White }} /></IconButton>
+                  </Box>
                   :
                   <ButtonWithIcon icon={<IconButton background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.Blue}   > <ArrowForwardIcon sx={{ color: DEFAULT_COLORS.Blue }} /></IconButton>} fullWidth background={DEFAULT_COLORS.Blue} onClick={() => login()} >Continue </ButtonWithIcon>
               }
@@ -399,14 +421,14 @@ const SignIn = () => {
 
       {
         isModal &&
-        <Modal 
-        open={isModal}
+        <Modal
+          open={isModal}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <ReferralModal referrals={referrals} setIsmodal={setIsmodal} />
+            <ReferralModal referrals={referrals} setIsmodal={setIsmodal} id={profile?._id} />
           </Box>
         </Modal>
 
