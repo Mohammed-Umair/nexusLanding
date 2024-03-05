@@ -334,9 +334,14 @@ const SignIn = () => {
             <Box mb="1rem">
               <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' textAlign='center' lineHeight='20px' fontFamily='SEN Bold'>You Nexus account is connected.</Text>
             </Box>
-            <Box mb="1rem" style={{ cursor: "pointer" }} onClick={() => setIsmodal(true)} >
+            <Box mb="1rem" py={'.8rem'} sx={{
+              cursor: "pointer", backgroundColor: DEFAULT_COLORS.Blue, borderRadius: '35px',  transition: 'all 1s ease', '&:hover': {
+                backgroundColor: DEFAULT_COLORS.black,
 
-              <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' fontFamily='SEN Bold' textAlign='center' lineHeight='20px'>
+              }
+            }} onClick={() => setIsmodal(true)} >
+
+              <Text color={DEFAULT_COLORS.White} fontSize='15px' fontFamily='SEN Bold' textAlign='center' lineHeight='20px'>
                 Your Referrals: {referrals.length}  <Person style={{ cursor: "pointer", verticalAlign: "top", fontSize: "19px" }} />
               </Text>
 

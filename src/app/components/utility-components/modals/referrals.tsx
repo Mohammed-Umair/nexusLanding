@@ -89,7 +89,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 320,
   bgcolor: 'background.paper',
   border: '2px solid white',
   borderRadius: '15px',
@@ -150,17 +150,27 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
     setCopied(true)
     setTimeout(() => { setCopied(false) }, 10000)
   }
+  const shortener = (id: string) => {
+    return id.slice(0, 5) + '...' + id.slice(-5);
+  }
 
   return (
     <div>
       <Box sx={{ backgroundColor: DEFAULT_COLORS.Blue }} borderRadius={'15px'}>
         <Grid container>
           <Grid item lg={6} sm={6} xs={12}>
-            <Image src="/Images/modal-main.svg" width="90%" />
+            <Box display={'flex'}>
+              <Image src="/Images/modal-main.svg" width={isMobile ? '150px' : '90%'} />
+              <Box display={{ sm: 'none', xs: 'block' }} mt={'1.5rem'}>
+                <Heading fontSize="60px" lineHeight="45px">Refer More <br /> Members</Heading>
+              </Box>
+            </Box>
           </Grid>
           <Grid item lg={6} sm={6} xs={12}>
             <Box maxWidth={'370px'} mt={isMobile ? '1rem' : '4rem'} display={'flex'} justifyContent={'center'} alignItems={{ sm: 'start', xs: 'center' }} gap={{ sm: '1rem', xs: '1rem' }} flexDirection={'column'} width={'100%'}>
-              <Heading fontSize="60px" textAlign={isMobile ? 'center' : 'start'} lineHeight="45px">Refer More Members</Heading>
+              <Box display={{ sm: 'block', xs: 'none' }}>
+                <Heading fontSize="60px" lineHeight="45px">Refer More <br /> Members</Heading>
+              </Box>
               <Box sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -168,10 +178,10 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                 backgroundColor: 'white',
                 padding: '5px 5px 5px 25px',
                 borderRadius: '45px',
-                width: { sm: '100%', xs: '90%' },
+                width: { sm: '100%', xs: '80%' },
                 cursor: 'pointer'
               }} onClick={() => copy(window.location.protocol + '//' + window.location.host + "?refId=" + _id)}>
-                <Text color={DEFAULT_COLORS.black} fontSize={isMobile ? '12px' : '17px'} lineHeight="20px">{_id}</Text>
+                <Text color={DEFAULT_COLORS.black} fontSize={isMobile ? '16px' : '17px'} lineHeight="20px">{_id}</Text>
                 <IconButton hover={false} background={DEFAULT_COLORS.Blue} color={DEFAULT_COLORS.Blue}>
                   {copied ? <FileDownloadDoneIcon sx={{ color: DEFAULT_COLORS.White }} /> : <CopyAllIcon sx={{ color: DEFAULT_COLORS.White }} />}
                 </IconButton>
@@ -180,12 +190,13 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                 display: 'flex',
                 justifyContent: { sm: 'start', xs: 'center' },
                 alignItems: 'center',
-                flexDirection: { sm: 'row', xs: 'column' },
+
                 gap: '1rem',
                 border: '1px solid white',
                 padding: '20px 25px',
                 borderRadius: '25px',
                 width: { sm: '100%', xs: '80%' },
+                marginBottom: '1rem'
               }}>
                 <Text fontSize="35px">{referrals.length}</Text>
                 <Box mr={isMobile ? '0rem' : '3rem'}>
@@ -202,11 +213,11 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
       </Box>
       <Box>
         <TableContainer component={Paper} sx={{ maxHeight: '250px' }}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ minWidth: isMobile ? 200 : 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
-                <TableCell align="right" sx={{ paddingRight: '17rem' }}>ID</TableCell>
+                <TableCell align="right" sx={{ paddingRight: isMobile?'5rem':'8rem' }}>ID</TableCell>
                 <TableCell align="right">Email</TableCell>
               </TableRow>
             </TableHead>
@@ -217,13 +228,13 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    <Text fontSize="20px" lineHeight="15px" fontFamily="SEN bold">{row.fullName}</Text>
+                    <Text fontSize={isMobile ? '14px' : '20px'} lineHeight="15px" fontFamily="SEN bold">{row.fullName}</Text>
                   </TableCell>
                   <TableCell align="right" >
-                    <Text fontSize="20px" lineHeight="15px" fontFamily="SEN bold">{row._id}</Text>
+                    <Text fontSize={isMobile ? '14px' : '20px'} lineHeight="15px" fontFamily="SEN bold">{shortener(row._id)}</Text>
                   </TableCell>
                   <TableCell align="right" >
-                    <Text fontSize="20px" lineHeight="15px" fontFamily="SEN bold">{row.email ? row.email : 'Not provided'}</Text>
+                    <Text fontSize={isMobile ? '14px' : '20px'} lineHeight="15px" fontFamily="SEN bold">{row.email ? row.email : 'Not provided'}</Text>
                   </TableCell>
                 </TableRow>
               ))}
@@ -272,9 +283,9 @@ const ReferralModal = (props: { setIsmodal: any, referrals: any, id: string }) =
                   <TelegramIcon size={42} round />
                 </TelegramShareButton>
                 <WhatsappShareButton
-                  url={URL}
-                  title={TitleLink}
-                  separator=":: "
+                  url={FullURL}
+                  title={''}
+                  separator=""
                   className="Demo__some-network__share-button"
                 >
                   <WhatsappIcon size={42} round />
