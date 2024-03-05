@@ -422,7 +422,9 @@ const SignIn = () => {
 
           </>
       }
-      <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' textAlign='center' fontFamily='SEN Bold'>We do not store any personal information</Text>
+      <Box mt={'1rem'}>
+      <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' textAlign='center' lineHeight='20px' fontFamily='SEN Bold'>We do not store any personal information</Text>
+      </Box>
 
       {
         isModal &&
