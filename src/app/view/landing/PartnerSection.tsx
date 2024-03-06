@@ -22,7 +22,7 @@ const PartnerSection = () => {
             <Box position="absolute" left="0px" top="100px">
                 <LeftShadow />
             </Box>
-            <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isMobile ? '100%' : '97vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isMobile ? '100%' : '800px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Container maxWidth="xl" >
                     <Grid container my={'4rem'} >
                         <Grid item lg={6} sm={6} xs={12}>

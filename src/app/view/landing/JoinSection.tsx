@@ -28,7 +28,7 @@ const JoinSection = ({ scrollToTarget, targetRef }: TargetProps) => {
             <Box position="absolute" left="0px" top="0px" ref={targetRef}>
                 <LeftShadow />
             </Box>
-            <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isMobile ? "100%" : "95vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+            <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isMobile ? "100%" : "800px", display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                 <Container maxWidth="xl">
                     <Grid container>
                         <Grid item lg={4} sm={4} xs={12}>

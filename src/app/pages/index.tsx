@@ -54,7 +54,7 @@ const Main = () => {
         <div></div>
       ) : (
         <Flex>
-          <Box width={'100%'} maxWidth={'1980px'}>
+          <Box width={'100%'} >
             <Hero scrollToTarget={scrollToTarget}  targetRef={targetRefSign} />
             <LandingSecondary />
             <Scroller />
