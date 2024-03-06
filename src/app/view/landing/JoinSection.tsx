@@ -24,7 +24,7 @@ const JoinSection = ({ scrollToTarget, targetRef }: TargetProps) => {
     const boxRef = useIntersectionAnimation();
     const isMobile = useIsMobile()
     return (
-        <Box mx="10px" my="2rem" ref={boxRef} position="relative">
+        <Box mx="10px" my="1rem" ref={boxRef} position="relative">
             <Box position="absolute" left="0px" top="0px" ref={targetRef}>
                 <LeftShadow />
             </Box>
