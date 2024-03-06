@@ -37,13 +37,14 @@
 }
 body {
   font-family: SEN medium;
+  scroll-behavior: smooth;
 }
 
 .hover-scale {
   transition: all 0.2s ease-in-out;
 }
 
-.hover-scale:hover {
+.hover-scale:hover { 
   opacity: 0.7;
 }
 
