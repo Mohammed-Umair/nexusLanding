@@ -10,7 +10,7 @@ import useIsMobile from '@/app/hooks/useIsMobile';
 
 function PinSectionCompoent() {
 
-  const [pinnedImage, setPinnedImage] = React.useState('/Images/engage-main.svg')
+  const [pinnedImage, setPinnedImage] = React.useState(IMAGE_COLLECTIONS.PinSectionImage)
 
   const boxRef = useIntersectionAnimation();
   const isMobile = useIsMobile()

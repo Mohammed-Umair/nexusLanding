@@ -18,7 +18,7 @@ const Main = () => {
   const [loading, setLoading] = useState(true);
   const targetRef = useRef<HTMLDivElement>(null);
   const targetRefSign = useRef<HTMLDivElement>(null);
-  const targetRefContact = useRef<HTMLDivElement>(null);
+  // const targetRefContact = useRef<HTMLDivElement>(null);
 
 
   const scrollToTarget = () => {
@@ -32,11 +32,11 @@ const Main = () => {
       targetRefSign.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  const scrollToTargetContact = () => {
-    if (targetRefContact.current) {
-      targetRefContact.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // const scrollToTargetContact = () => {
+  //   if (targetRefContact.current) {
+  //     targetRefContact.current.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
 
   // Simulating image loading using a timeout
   useEffect(() => {
@@ -55,12 +55,12 @@ const Main = () => {
       ) : (
         <Flex>
           <Box width={'100%'} maxWidth={'1980px'}>
-            <Hero scrollToTarget={scrollToTarget} scrollToTargetContact={scrollToTargetContact} targetRef={targetRefSign} />
+            <Hero scrollToTarget={scrollToTarget}  targetRef={targetRefSign} />
             <LandingSecondary />
             <Scroller />
             <PinSectionCompoent />
             <JoinSection scrollToTarget={scrollToTargetSign} targetRef={targetRef} />
-            <ContactSection targetRef={targetRefContact} />
+            {/* <ContactSection targetRef={targetRefContact} /> */}
             <PartnerSection />
             <LastSection />
 

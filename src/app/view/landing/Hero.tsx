@@ -25,11 +25,10 @@ import IconButtons from "@mui/material"
 
 interface ButtonProps {
   scrollToTarget: () => void;
-  scrollToTargetContact: () => void;
   targetRef: React.RefObject<HTMLDivElement>;
 }
 
-const Hero = ({ scrollToTarget, targetRef, scrollToTargetContact }: ButtonProps) => {
+const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
   const isMobile = useIsMobile()
   const isBig = useIsBig()
   const isTab = useIsTab()
@@ -130,7 +129,7 @@ const Hero = ({ scrollToTarget, targetRef, scrollToTargetContact }: ButtonProps)
                 </Flex>
                 <Box mt="10rem" mr="12rem">
                   <Flex>
-                    <Button borderRadius="25px" padding=".6rem 1.2rem" onClick={() => scrollToTargetContact()}>
+                    <Button borderRadius="25px" padding=".6rem 1.2rem" >
                       <Box sx={{
                         "&:hover": {  // Use "&:hover" instead of ":hover"
                           color: DEFAULT_COLORS.Blue
