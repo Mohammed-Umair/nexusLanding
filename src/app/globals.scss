@@ -102,7 +102,7 @@ body {
   width: 1px;
   border: 0.5px solid white;
   background-color: white;
-  transition: all 500ms ease;
+  transition: height 1000ms ease;
 }
 
 .hover-color {
@@ -362,7 +362,7 @@ a {
 }
 
 .transition {
-  transition: all 500ms ease-in;
+  transition: all 1000ms ease-in;
 }
 
 .scale {

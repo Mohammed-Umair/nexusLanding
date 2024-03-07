@@ -30,20 +30,25 @@ const PinnedSection = ({ title, image, description, isActive }: PinnedSectionPro
     return (
         <Box my="1rem" className="" >
             <Flex alignItems='start' justifyContent='start' gap={'2.5rem'} className={isMounted ? 'mounted-class' : 'unmounted-class'}>
-                <Flex flexDirection="column" justifyContent='start' className={isMounted ? 'mounted' : 'unmounted'}>
+                <Flex flexDirection="column" gap={'0px'}>
                     {
                         isActive ? <div className='scale'><Image src={image} width='70px' style={{ marginBottom: '1rem' }} /></div> : <div className='dot'></div>
                     }
                     {
-                        !isMobile && title !== "Contribution" && (<div style={{ height: isActive ? '50px' : '0px', border: isActive ? '' : 'none' }} className='horizontal-line'></div>)
+                        !isMobile && title !== "Contribution" && (<div style={{ height: isActive ? '50px' : '0px', border: isActive ? '' : 'none', marginLeft: isActive ? '0rem' : '2rem' }} className='horizontal-line'></div>)
                     }
 
                 </Flex>
-                <Box className={isMounted ? 'mounted' : 'unmounted'}>
+                <Box >
                     <Box mb={isActive ? '2rem' : '0rem'} ml={isActive ? '0rem' : '1.5rem'}>
                         <Text fontSize={isMobile || !isActive ? '25px' : '40px'} lineHeight='19px' fontFamily='SEN bold' color={DEFAULT_COLORS.White}>{title}</Text>
                     </Box>
-                    <Box height={isActive ? 'auto' : '0px'} overflow={'hidden'} sx={{ transition: 'all 500ms ease' }}>
+                    <Box sx={{
+                        transition: 'height 500ms ease',
+                        height: isActive ? 'auto' : '0px', // Set height to 'auto' when isActive is true, '0' when isActive is false
+                        overflow: 'hidden', // Ensure content is hidden when height is 0
+                        maxWidth: '350px', // Set maximum width
+                    }}>
                         <Text fontSize={'15px'} color={DEFAULT_COLORS.Light} lineHeight='17px' maxWidth='350px'  >{description}</Text>
                     </Box>
                 </Box>

@@ -27,7 +27,7 @@ const Text = ({
       whiteSpace={lineBrake ? 'nowrap' : 'normal'}
       sx={{
         color: isGradient ? '' : color,
-        transition: 'all 500ms ease'
+        transition: 'all 1000ms ease'
       }}
       className={isGradient ? 'grad-text' : ''}
     >
