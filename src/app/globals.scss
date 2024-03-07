@@ -43,7 +43,7 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.hover-scale:hover { 
+.hover-scale:hover {
   opacity: 0.7;
 }
 
@@ -179,10 +179,10 @@ body {
 
 @keyframes move-up {
   from {
-    transform: translateY(100px);
+    transform: scale(0);
   }
   to {
-    transform: translateY(0px);
+    transform: scale(1);
   }
 }
 
@@ -307,4 +307,55 @@ a {
   transform: translate(-50%, -50%);
   width: 100%;
   z-index: 1000;
+}
+
+.opac {
+  animation: opac 1s ease-in;
+}
+
+@keyframes opac {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.opac1 {
+  animation: opac1 1s ease-in;
+}
+
+@keyframes opac1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mounted {
+  animation: mount 1s ease-in;
+}
+.unmounted {
+  animation: unmount 1s ease-in;
+}
+
+@keyframes mount {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes unmount {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

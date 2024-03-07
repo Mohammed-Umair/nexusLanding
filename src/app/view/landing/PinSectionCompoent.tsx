@@ -7,6 +7,7 @@ import RightShadow from '@/app/components/page-components/RightShadow';
 import PinnEffects from '@/app/components/page-components/PinnEffects';
 import useIntersectionAnimation from '@/app/hooks/useIntersectionAnimation';
 import useIsMobile from '@/app/hooks/useIsMobile';
+import styled from 'styled-components';
 
 
 function PinSectionCompoent() {
@@ -18,11 +19,11 @@ function PinSectionCompoent() {
       const scrollPosition = window.scrollY;
       const viewportHeight = window.innerHeight;
       const numberOfImages = 4; // Assuming you have 4 images
-      const imageHeight = viewportHeight; // Each image takes the full height of the viewport
+      const imageHeight = viewportHeight - 200; // Each image takes the full height of the viewport
 
       // Log the scroll position and image height
       console.log("Scroll Position:", scrollPosition);
-      console.log("Viewport Height:", viewportHeight);
+      console.log("Viewport Height:", imageHeight);
 
       // Calculate which image should be displayed based on the scroll position
       const imageIndexToShow = Math.floor(scrollPosition / imageHeight);
@@ -47,7 +48,7 @@ function PinSectionCompoent() {
       <Box position={'absolute'} right="0px" top="1200px" >
         <RightShadow />
       </Box>
-      <Box sx={{ height: isMobile ? '800vh' : '800vh', position: 'relative', width: '100%' }}>
+      <Box sx={{ height: { xs: '400vh', sm: '400vh', md: '400vh', lg: '400vh', xl: '300vh' }, position: 'relative', width: '100%' }}>
         <Box
           position={'sticky'}
           top={'50%'}
@@ -63,9 +64,9 @@ function PinSectionCompoent() {
             <Content
               stack={
                 currentImage <= 3 ? 1 :
-                  (currentImage === 4 || currentImage === 5) ? 2 :
-                    (currentImage === 6 || currentImage === 7) ? 3 :
-                      (currentImage >= 8) ? 4 :
+                  (currentImage === 4) ? 2 :
+                    (currentImage === 5) ? 3 :
+                      (currentImage >= 6) ? 4 :
                         0
               }
             />
@@ -104,14 +105,24 @@ const Content = ({ stack }: any) => {
     <Grid container sx={{ position: 'absolute' }}>
       <Grid item lg={6} sm={6} xs={12}>
         <Flex justifyContent='end'>
-          <Box p={isMobile ? '1rem' : '0rem'} mt={'3rem'} className="left">
-            <Image src={pinnedImage} width={isMobile ? '100%' : '85%'} />
-          </Box>
+          <MainImage pinnedImage={pinnedImage} stack={stack} />
         </Flex>
       </Grid>
       <Grid item lg={6} sm={6} xs={12}>
         <PinnEffects stack={stack} />
       </Grid>
     </Grid>
+  )
+}
+
+const MainImage = ({ pinnedImage, stack }: any) => {
+  const isMobile = useIsMobile();
+  const [state, setState] = useState(false);
+
+  useEffect(() => { setState(!state) }, [pinnedImage])
+  return (
+    <Box p={isMobile ? '1rem' : '0rem'} mt={'3rem'} className={state ? 'opac' : 'opac1'} >
+      <Image src={pinnedImage} width={isMobile ? '100%' : '85%'}  />
+    </Box>
   )
 }
