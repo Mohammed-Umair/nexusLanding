@@ -9,63 +9,49 @@ import { StaticImageData } from 'next/image'
 import { DEFAULT_COLORS } from '@/app/utils/colors'
 
 interface MyComponentProps {
-    setPinnedImage: (pinnedImage: string) => void;
+    stack: number;
 }
 
-const PinnEffects = ({ setPinnedImage }: MyComponentProps) => {
-    const [hover, setHover] = React.useState<number>(1)
-    const onMouse = (num: number) => {
-        setHover(num)
-        if (num === 1) {
-            setPinnedImage('/Images/pin-main1.png')
-        } else if (num === 2) {
-            setPinnedImage('/Images/pin-main2.png')
-        }
-        else if (num === 3) {
-            setPinnedImage('/Images/pin-main3.png')
-        }
-        else {
-            setPinnedImage('/Images/pin-main4.png')
-        }
-    }
+const PinnEffects = ({ stack }: MyComponentProps) => {
+
     const isMobile = useIsMobile()
     return (
         <Box p={isMobile ? '2rem 0rem 2rem 2rem;' : '4rem 4rem 0rem 0rem'} className="right" >
             <Flex flexDirection="column" justifyContent='start' alignItems='start'>
                 {
-                    hover === 1 ? (
+                    stack === 1 ? (
                         <div >
                             <PinnedSection title='Engage' image={'/Images/pin-mini1.png'} description='Engage with Nexus community and compete with others in sharing the upcoming launches for a chance to win a spot.' />
                         </div>
                     ) : (
-                        <Flex className="hover-scale" style={{ marginLeft: '2.3rem', cursor: 'pointer', position: 'relative', zIndex: 1000, gap: '66px' }} gap="3rem"><div className='dot'></div><div onClick={() => onMouse(1)} style={{ textAlign: 'start', fontSize: '25px', fontFamily: 'SEN medium', color: DEFAULT_COLORS.White }}>Engage</div></Flex>
+                        <Flex className="hover-scale" style={{ marginLeft: '2.3rem', cursor: 'pointer', position: 'relative', zIndex: 1000, gap: '66px' }} gap="3rem"><div className='dot'></div><div style={{ textAlign: 'start', fontSize: '25px', fontFamily: 'SEN medium', color: DEFAULT_COLORS.White }}>Engage</div></Flex>
                     )
                 }
                 {
-                    hover === 2 ? (
+                    stack === 2 ? (
                         <div >
                             <PinnedSection title='Snapshot' image={'/Images/pin-mini2.png'} description='Snapshots are taken of all the competing profiles and wallets.' />
                         </div>
                     ) : (
-                        <Flex className="hover-scale" style={{ marginLeft: '2.3rem', cursor: 'pointer', position: 'relative', zIndex: 1000, gap: '66px' }} gap="3rem"><div className='dot'></div><div onClick={() => onMouse(2)} style={{ textAlign: 'start', fontSize: '25px', fontFamily: 'SEN medium', color: DEFAULT_COLORS.White }}>Snapshot</div></Flex>
+                        <Flex className="hover-scale" style={{ marginLeft: '2.3rem', cursor: 'pointer', position: 'relative', zIndex: 1000, gap: '66px' }} gap="3rem"><div className='dot'></div><div style={{ textAlign: 'start', fontSize: '25px', fontFamily: 'SEN medium', color: DEFAULT_COLORS.White }}>Snapshot</div></Flex>
                     )
                 }
                 {
-                    hover === 3 ? (
+                    stack === 3 ? (
                         <div >
                             <PinnedSection title='Lottery' image={'/Images/pin-mini3.png'} description='Nexus smart contract withdraws a lottery for each launch and selects limited random profiles which will be investing.' />
                         </div>
                     ) : (
-                        <Flex className="hover-scale" style={{ marginLeft: '2.3rem', cursor: 'pointer', position: 'relative', zIndex: 1000, gap: '66px' }} gap="3rem"><div className='dot'></div><div onClick={() => onMouse(3)} style={{ textAlign: 'start', fontSize: '25px', fontFamily: 'SEN medium', color: DEFAULT_COLORS.White }}>Lottery</div></Flex>
+                        <Flex className="hover-scale" style={{ marginLeft: '2.3rem', cursor: 'pointer', position: 'relative', zIndex: 1000, gap: '66px' }} gap="3rem"><div className='dot'></div><div style={{ textAlign: 'start', fontSize: '25px', fontFamily: 'SEN medium', color: DEFAULT_COLORS.White }}>Lottery</div></Flex>
                     )
                 }
                 {
-                    hover === 4 ? (
+                    stack === 4 ? (
                         <div >
                             <PinnedSection title='Contribution' image={'/Images/pin-mini4.png'} description='Selected profiles and wallets invest their funds into the sale and claim purchased tokens according to the vesting period.' />
                         </div>
                     ) : (
-                        <Flex className="hover-scale" style={{ marginLeft: '2.3rem', cursor: 'pointer', position: 'relative', zIndex: 1000, gap: '66px' }} gap="3rem"><div className='dot'></div><div onClick={() => onMouse(4)} style={{ textAlign: 'start', fontSize: '25px', fontFamily: 'SEN medium', color: DEFAULT_COLORS.White }}>Contribution</div></Flex>
+                        <Flex className="hover-scale" style={{ marginLeft: '2.3rem', cursor: 'pointer', position: 'relative', zIndex: 1000, gap: '66px' }} gap="3rem"><div className='dot'></div><div style={{ textAlign: 'start', fontSize: '25px', fontFamily: 'SEN medium', color: DEFAULT_COLORS.White }}>Contribution</div></Flex>
                     )
                 }
             </Flex>
