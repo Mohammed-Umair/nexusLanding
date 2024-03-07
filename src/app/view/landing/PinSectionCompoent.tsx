@@ -48,7 +48,7 @@ function PinSectionCompoent() {
       <Box position={'absolute'} right="0px" top="1200px" >
         <RightShadow />
       </Box>
-      <Box sx={{ height: { xs: '400vh', sm: '400vh', md: '400vh', lg: '400vh', xl: '300vh' }, position: 'relative', width: '100%' }}>
+      <Box sx={{ height: { xs: '500vh', sm: '400vh', md: '400vh', lg: '400vh', xl: '320vh' }, position: 'relative', width: '100%' }}>
         <Box
           position={'sticky'}
           top={'50%'}
@@ -63,13 +63,22 @@ function PinSectionCompoent() {
           <Box position={'relative'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>
             <Content
               stack={
-                currentImage <= 1 ? 1 :
-                  (currentImage === 2) ? 2 :
-                    (currentImage === 3) ? 3 :
-                      (currentImage >= 4) ? 4 :
-                        0
+                isMobile ? (
+                  currentImage <= 3 ? 1 :
+                    currentImage === 4 ? 2 :
+                      currentImage === 5 ? 3 :
+                        currentImage >= 6 ? 4 :
+                          0
+                ) : (
+                  currentImage <= 1 ? 1 :
+                    currentImage === 2 ? 2 :
+                      currentImage === 3 ? 3 :
+                        currentImage >= 4 ? 4 :
+                          0
+                )
               }
             />
+
 
           </Box>
         </Box>
@@ -122,7 +131,7 @@ const MainImage = ({ pinnedImage, stack }: any) => {
   useEffect(() => { setState(!state) }, [pinnedImage])
   return (
     <Box p={isMobile ? '1rem' : '0rem'} mt={'3rem'} className={state ? 'opac' : 'opac1'} >
-      <Image src={pinnedImage} width={isMobile ? '100%' : '85%'}  />
+      <Image src={pinnedImage} width={isMobile ? '100%' : '85%'} />
     </Box>
   )
 }
