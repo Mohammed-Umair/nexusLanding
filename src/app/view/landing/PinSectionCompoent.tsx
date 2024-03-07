@@ -63,10 +63,10 @@ function PinSectionCompoent() {
           <Box position={'relative'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>
             <Content
               stack={
-                currentImage <= 3 ? 1 :
-                  (currentImage === 4) ? 2 :
-                    (currentImage === 5) ? 3 :
-                      (currentImage >= 6) ? 4 :
+                currentImage <= 1 ? 1 :
+                  (currentImage === 2) ? 2 :
+                    (currentImage === 3) ? 3 :
+                      (currentImage >= 4) ? 4 :
                         0
               }
             />
