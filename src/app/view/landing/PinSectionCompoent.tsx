@@ -70,10 +70,10 @@ function PinSectionCompoent() {
                         currentImage >= 6 ? 4 :
                           0
                 ) : (
-                  currentImage <= 1 ? 1 :
-                    currentImage === 2 ? 2 :
-                      currentImage === 3 ? 3 :
-                        currentImage >= 4 ? 4 :
+                  currentImage <= 2 ? 1 :
+                    currentImage === 3 ? 2 :
+                      currentImage === 4 ? 3 :
+                        currentImage >= 5 ? 4 :
                           0
                 )
               }
