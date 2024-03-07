@@ -26,9 +26,10 @@ const Text = ({
       maxWidth={maxWidth}
       whiteSpace={lineBrake ? 'nowrap' : 'normal'}
       sx={{
-        color: isGradient ? '' : color
-    }}
-    className={isGradient ? 'grad-text' : ''}
+        color: isGradient ? '' : color,
+        transition: 'all 500ms ease'
+      }}
+      className={isGradient ? 'grad-text' : ''}
     >
       {children}
     </Typography>
