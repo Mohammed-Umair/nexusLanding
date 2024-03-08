@@ -56,8 +56,8 @@ function PinSectionCompoent() {
           zIndex={1}
 
           sx={{
-            marginTop: '50vh',
-            marginBottom: '50vh',
+            marginTop: '800px',
+            marginBottom: '800px',
 
           }}>
           <Box position={'relative'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>

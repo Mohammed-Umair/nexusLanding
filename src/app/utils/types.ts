@@ -16,7 +16,7 @@ export type ComponentProps = {
     borderRadius?: string
     fullWidth?: boolean
     justifyContent?: string
-    alignItems?: string
+    alignItems?: object | string
     gap?: string | object | number | undefined
     flexDirection?: object | string
     width?: string

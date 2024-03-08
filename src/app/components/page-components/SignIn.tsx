@@ -323,8 +323,11 @@ const SignIn = () => {
       padding: '2rem',
       borderRadius: '25px',
       margin: '10px',
+      marginBottom: {
+        xs: '2rem', sm: "3rem", xl: '0rem' 
+      },
       marginTop: {
-        xs: '1rem', sm: "0rem"
+        xs: '1rem', sm: "3rem", xl: '0rem'
       }
     }}>
       {
@@ -335,7 +338,7 @@ const SignIn = () => {
               <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' textAlign='center' lineHeight='20px' fontFamily='SEN Bold'>You Nexus account is connected.</Text>
             </Box>
             <Box mb="1rem" py={'.8rem'} sx={{
-              cursor: "pointer", backgroundColor: DEFAULT_COLORS.Blue, borderRadius: '35px',  transition: 'all 1s ease', '&:hover': {
+              cursor: "pointer", backgroundColor: DEFAULT_COLORS.Blue, borderRadius: '35px', transition: 'all 1s ease', '&:hover': {
                 backgroundColor: DEFAULT_COLORS.black,
 
               }
@@ -423,7 +426,7 @@ const SignIn = () => {
           </>
       }
       <Box mt={'1rem'}>
-      <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' textAlign='center' lineHeight='20px' fontFamily='SEN Bold'>We do not store any personal information</Text>
+        <Text color={DEFAULT_COLORS.Dark_Light} fontSize='15px' textAlign='center' lineHeight='20px' fontFamily='SEN Bold'>We do not store any personal information</Text>
       </Box>
 
       {
