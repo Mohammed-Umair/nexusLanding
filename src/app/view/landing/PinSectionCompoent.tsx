@@ -5,13 +5,16 @@ import { IMAGE_COLLECTIONS } from '@/app/utils/images';
 import React, { useEffect, useState } from 'react';
 import RightShadow from '@/app/components/page-components/RightShadow';
 import PinnEffects from '@/app/components/page-components/PinnEffects';
+import PinnEffectsMobile from '@/app/components/page-components/PinnEffectMobile';
 import useIntersectionAnimation from '@/app/hooks/useIntersectionAnimation';
 import useIsMobile from '@/app/hooks/useIsMobile';
 import styled from 'styled-components';
+import useIsTab from '@/app/hooks/useIsTab';
 
 
 function PinSectionCompoent() {
   const isMobile = useIsMobile()
+  const istab = useIsTab()
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
@@ -40,7 +43,7 @@ function PinSectionCompoent() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [currentImage]);
-
+  const [pinnedImage, setPinnedImage] = React.useState(IMAGE_COLLECTIONS.PinSectionImage)
 
   return (
 
@@ -48,41 +51,63 @@ function PinSectionCompoent() {
       <Box position={'absolute'} right="0px" top="1200px" >
         <RightShadow />
       </Box>
-      <Box sx={{ height: { xs: '500vh', sm: '400vh', md: '400vh', lg: '400vh', xl: '320vh' }, position: 'relative', width: '100%' }}>
-        <Box
-          position={'sticky'}
-          top={'50%'}
-          left={'0%'}
-          zIndex={1}
+      {
+        isMobile ? (
+          <Flex style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Box className="contain" >
+              <Grid container>
+                <Grid item lg={6} sm={6} xs={12}>
+                  <Flex>
+                    <Box p={isMobile ? '2rem' : '4rem 4rem 0rem 0rem'} className="left">
+                      <Image src={pinnedImage} width="100%" />
+                    </Box>
+                  </Flex>
+                </Grid>
+                <Grid item lg={6} sm={6} xs={12}>
+                  <PinnEffectsMobile setPinnedImage={setPinnedImage} />
+                </Grid>
+              </Grid>
+            </Box>
+          </Flex>
+        ) : (
+        <Box sx={{ height: { xs: '500vh', sm: '400vh', md: '400vh', lg: '400vh', xl: '320vh' }, position: 'relative', width: '100%' }}>
+          <Box
+            position={'sticky'}
+            top={'50%'}
+            left={'0%'}
+            zIndex={1}
 
-          sx={{
-            marginTop: '800px',
-            marginBottom: '800px',
+            sx={{
+              marginTop: '800px',
+              marginBottom: '800px',
 
-          }}>
-          <Box position={'relative'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>
-            <Content
-              stack={
-                isMobile ? (
-                  currentImage <= 3 ? 1 :
-                    currentImage === 4 ? 2 :
-                      currentImage === 5 ? 3 :
-                        currentImage >= 6 ? 4 :
-                          0
-                ) : (
-                  currentImage <= 2 ? 1 :
-                    currentImage === 3 ? 2 :
-                      currentImage === 4 ? 3 :
-                        currentImage >= 5 ? 4 :
-                          0
-                )
-              }
-            />
+            }}>
+            <Box position={'relative'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>
+              <Content
+                stack={
+                  isMobile ? (
+                    currentImage <= 3 ? 1 :
+                      currentImage === 4 ? 2 :
+                        currentImage === 5 ? 3 :
+                          currentImage >= 6 ? 4 :
+                            0
+                  ) : (
+                    currentImage <= 2 ? 1 :
+                      currentImage === 3 ? 2 :
+                        currentImage === 4 ? 3 :
+                          currentImage >= 5 ? 4 :
+                            0
+                  )
+                }
+              />
 
 
+            </Box>
           </Box>
         </Box>
-      </Box>
+        )
+      }
+
     </>
   );
 }
