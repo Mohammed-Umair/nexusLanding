@@ -11,11 +11,13 @@ import useIntersectionAnimation from '@/app/hooks/useIntersectionAnimation';
 import RightShadow from '@/app/components/page-components/RightShadow';
 import LeftShadow from '@/app/components/page-components/LeftShadow';
 import useIsMobile from '@/app/hooks/useIsMobile';
+import useIsTab from '@/app/hooks/useIsTab';
 
 
 const PartnerSection = () => {
     const boxRef = useIntersectionAnimation();
     const isMobile = useIsMobile()
+    const isTab = useIsTab()
     return (
         <Box mx="10px" mb={'1rem'} ref={boxRef} position="relative">
           
@@ -28,7 +30,7 @@ const PartnerSection = () => {
                         <Grid item lg={6} sm={6} xs={12}>
                             <Box m={{ xs: '0rem', sm: '4rem' }}>
                                 <Flex flexDirection='column'>
-                                    <Heading isGradient textAlign={'center'}>Our Partners</Heading>
+                                    <Heading isGradient textAlign={'center'} fontSize={isTab?'40px':'65px'} lineBrake={true}>Our Partners</Heading>
                                     <Text fontSize='18px' color={DEFAULT_COLORS.Light} maxWidth='360px' textAlign='center' lineHeight='19px'>Our esteemed partners share our vision. Together, we’re creating an ecosystem that propels innovation and success.</Text>
                                     <PartnerLogoSection />
                                 </Flex>

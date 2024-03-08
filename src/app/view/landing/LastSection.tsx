@@ -24,7 +24,7 @@ const LastSection = () => {
                 <Image src={IMAGE_COLLECTIONS.BackgroundCircle} width="90%" />
               </Flex>
             </Box>
-            <Box position="absolute" top={{ xl: "25%",md:'10%', xs: "40px" }} left="42%" width={{ xl: "300px",md:"200px", xs: "100px" }} className="move-up-down">
+            <Box position="absolute" top={{ lg: "25%",md:'10%', xs: "40px" }} left="42%" width={{ xl: "300px",md:"200px", xs: "100px" }} className="move-up-down">
               <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/footer-small-main.png'} width="100%" />
             </Box>
             <Box position="absolute" top="10%" left="-17px" width={{ lg: "350px", md: '300px', xs: "100px" }} className="move-up-down">

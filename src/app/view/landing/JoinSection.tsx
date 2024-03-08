@@ -12,6 +12,7 @@ import LeftShadow from '@/app/components/page-components/LeftShadow'
 import useIsMobile from '@/app/hooks/useIsMobile'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Heading from '@/app/components/utility-components/text/Heading'
+import useIsTab from '@/app/hooks/useIsTab'
 
 interface TargetProps {
     scrollToTarget: () => void;
@@ -23,17 +24,18 @@ interface TargetProps {
 const JoinSection = ({ scrollToTarget, targetRef }: TargetProps) => {
     const boxRef = useIntersectionAnimation();
     const isMobile = useIsMobile()
+    const isTab = useIsTab()
     return (
         <Box mx="10px" my="1rem" ref={boxRef} position="relative">
             <Box position="absolute" left="0px" top="0px" ref={targetRef}>
                 <LeftShadow />
             </Box>
-            <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isMobile ? "100%" : "800px", display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+            <ContainerBox background={DEFAULT_COLORS.Dark_Light} style={{ height: isTab ? "100%" : "800px", display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                 <Container maxWidth="xl">
                     <Grid container>
-                        <Grid item lg={4} sm={4} xs={12}>
-                            <Box m={{ xs: '1rem 1rem 1rem 1rem ', sm: '6rem 4rem 4rem 4rem ' }} display={'flex'} justifyContent={'center'} alignItems={{ xs: 'center', sm: 'start' }} flexDirection={'column'}>
-                                <Flex gap="10px" justifyContent='start' style={{ marginBottom: '1rem' }}>
+                        <Grid item lg={4} md={4} sm={12} xs={12}>
+                            <Box m={{ xs: '1rem 1rem 1rem 1rem ', sm: '2rem', lg: '6rem 4rem 4rem 4rem ' }} display={'flex'} justifyContent={'center'} alignItems={{ xs: 'center', sm: 'center',md:'start', lg: 'start' }} flexDirection={{ xs: 'column', sm: 'column', lg: 'column' }}>
+                                <Flex gap="10px"  flexDirection={{ xs: 'row', sm: 'row',md:'column', lg: 'row' }} alignItems={{ xs: 'center', sm: 'center',md:'start', lg: 'start' }} style={{ marginBottom: '1rem' }}>
                                     <Heading textAlign='start' fontSize={isMobile ? '40px' : '55px'} lineBrake lineHeight='67px'>How to</Heading>
                                     <Heading textAlign='start' fontSize={isMobile ? '40px' : '55px'} isGradient lineHeight='67px'>Join?</Heading>
                                 </Flex>
@@ -43,7 +45,7 @@ const JoinSection = ({ scrollToTarget, targetRef }: TargetProps) => {
                                 </Box>
                             </Box>
                         </Grid>
-                        <Grid item lg={8} sm={8} xs={12}>
+                        <Grid item lg={8} md={8} sm={12} xs={12}>
                             <Box m={{ xs: '0rem', sm: '4rem' }} borderRadius={'25px'}>
                                 <video width={'100%'} height={'100%'} autoPlay loop playsInline muted style={{ borderRadius: '20px' }}>
                                     <source src='/Images/join-main-video.mp4' type="video/mp4" />

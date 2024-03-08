@@ -66,7 +66,7 @@ const LandingSecondary = () => {
                                 <Heading color={DEFAULT_COLORS.Blue} lineHeight={isMobile ? '35px' : '55px'}>Better</Heading>
                             </Flex>
                             <Text color={DEFAULT_COLORS.Light} maxWidth="500px" textAlign="center" lineHeight="25px" fontSize="20px">With a seamless and secure platform, Nexus is redefining the excellence of launches.</Text>
-                            <Flex style={{ width: '100%',marginTop:'3rem' }} flexDirection={{ sm: 'row', xs: 'column' }}>
+                            <Flex style={{ width: '100%',marginTop:'3rem' }} flexDirection={{ sm: 'column', xs: 'row', lg:'row' }}>
                                 <SecondayCard image={IMAGE_COLLECTIONS.NexusN} descriptionBold = "Community backed launches " description="infused into an innovative platform." />
                                 <SecondayCard image={IMAGE_COLLECTIONS.Hammer} descriptionBold = "Premium experience " description="on all devices with user-friendly interface." />
                                 <SecondayCard image={IMAGE_COLLECTIONS.Settings} descriptionBold = "Perfectly crafted tools " description="for all new launchpad experience." />

@@ -47,10 +47,10 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
       borderRadius: '15px',
       position: 'relative',
       height: '100%',
-      minHeight: isMobile ? '100%' : '860px'
+      minHeight: isTab ? '100%' : '860px'
     }} m="1rem" ref={targetRef}>
       <Header />
-      {isMobile ? (
+      {isTab ? (
         <>
           <Flex>
             <Box left='0rem' top="0rem">
@@ -118,7 +118,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
           <Box className="hero-centered-element">
             <Flex width="100%" style={{marginLeft:'8rem'}}>
               < Box position="relative" zIndex={100} >
-                {!isMobile && (
+                {!isTab && (
                   <Typography fontSize="90px" fontFamily="SEN bold" color={DEFAULT_COLORS.White} lineHeight={'80px'}>Leading  <br /> Launches.</Typography>
                 )}
                 <Flex style={{ marginTop: '5rem', marginRight: '5rem' }}>
