@@ -7,6 +7,7 @@ import useIsMobile from '@/app/hooks/useIsMobile'
 import Main1 from '@/../public/Images/pin-main1.png'
 import { StaticImageData } from 'next/image'
 import { DEFAULT_COLORS } from '@/app/utils/colors'
+import useIsTab from '@/app/hooks/useIsTab'
 
 interface MyComponentProps {
     stack: number;
@@ -15,8 +16,9 @@ interface MyComponentProps {
 const PinnEffects = ({ stack }: MyComponentProps) => {
 
     const isMobile = useIsMobile()
+    const isTab = useIsTab()
     return (
-        <Box p={isMobile ? '2rem 0rem 2rem 2rem;' : '4rem 4rem 0rem 0rem'} className="right" >
+        <Box p={isTab ? '0rem' : '4rem 4rem 0rem 0rem'} className="right" >
             <Flex flexDirection="column" justifyContent='start' alignItems='start'>
 
                 <div >
