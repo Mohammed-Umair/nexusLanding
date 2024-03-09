@@ -20,7 +20,7 @@ const PartnerSection = () => {
     const isTab = useIsTab()
     return (
         <Box mx="10px" mb={'1rem'} ref={boxRef} position="relative">
-          
+
             <Box position="absolute" left="0px" top="100px">
                 <LeftShadow />
             </Box>
@@ -30,18 +30,19 @@ const PartnerSection = () => {
                         <Grid item lg={6} sm={6} xs={12}>
                             <Box m={{ xs: '0rem', sm: '4rem' }}>
                                 <Flex flexDirection='column'>
-                                    <Heading isGradient textAlign={'center'} fontSize={isTab?'40px':'65px'} lineBrake={true}>Our Partners</Heading>
+                                    <Heading isGradient textAlign={'center'} fontSize={isTab ? '40px' : '65px'} lineBrake={true}>Our Partners</Heading>
                                     <Text fontSize='18px' color={DEFAULT_COLORS.Light} maxWidth='360px' textAlign='center' lineHeight='19px'>Our esteemed partners share our vision. Together, we’re creating an ecosystem that propels innovation and success.</Text>
-                                    <PartnerLogoSection />
+                             <PartnerLogoSection />
                                 </Flex>
                             </Box>
                         </Grid>
                         <Grid item lg={6} sm={6} xs={12}>
-                            <Box m={{ xs: '0rem', sm: '4rem' }} className="move-up-down">
+                            <Box m={{ xs: '2rem', sm: '4rem' }} className="move-up-down">
                                 <Flex>
                                     <Image src={'https://nexusprotocol.s3.eu-north-1.amazonaws.com/NexusImages/partner-main.svg'} width={isMobile ? '250px' : '350px'} />
                                 </Flex>
                             </Box>
+                        
                         </Grid>
                     </Grid>
                 </Container>

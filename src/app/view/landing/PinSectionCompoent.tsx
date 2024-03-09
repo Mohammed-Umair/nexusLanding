@@ -138,12 +138,12 @@ const Content = ({ stack }: any) => {
 
   return (
     <Grid container sx={{ position: 'absolute' }}>
-      <Grid item lg={6} md={12} sm={12} xs={12}>
+      <Grid item lg={6} md={6} sm={6} xs={6}>
         <Flex justifyContent={isTab ? 'center':'end'}>
           <MainImage pinnedImage={pinnedImage} stack={stack} />
         </Flex>
       </Grid>
-      <Grid item lg={6} md={12} sm={12} xs={12}>
+      <Grid item lg={6} md={6} sm={6} xs={6}>
         <PinnEffects stack={stack} />
       </Grid>
     </Grid>
@@ -158,7 +158,7 @@ const MainImage = ({ pinnedImage, stack }: any) => {
   useEffect(() => { setState(!state) }, [pinnedImage])
   return (
     <Box p={isMobile ? '1rem' : '0rem'} mt={'3rem'} className={state ? 'opac' : 'opac1'} >
-      <Image src={pinnedImage} width={isTab ? '100%' : '85%'} />
+      <Image src={pinnedImage} width={isMobile ? '100%' : '85%'} />
     </Box>
   )
 }

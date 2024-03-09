@@ -58,18 +58,18 @@ const LandingSecondary = () => {
                 <RightMaskContainer>
                     <img src="Images/blueright.png"></img>
                 </RightMaskContainer> */}
-                <Flex  sx={{ height: isMobile ? '800px' : '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5rem' }}>
+                <Flex sx={{ height: isMobile ? '800px' : '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5rem' }}>
                     <Box my={'4rem'} >
                         <Flex flexDirection="column" gap="3rem">
-                            <Flex flexDirection={{ sm: 'column', xs: 'row',lg:'row' }} gap={{ sm: '1rem', xs: '0rem' }} style={{marginBottom:'3rem', marginTop:'7rem'}}>
-                                <Heading color={DEFAULT_COLORS.White} lineHeight={isMobile ? '35px' : '50px'}>What Makes us </Heading>
-                                <Heading color={DEFAULT_COLORS.Blue} lineHeight={isMobile ? '35px' : '50px'}>Better</Heading>
+                            <Flex flexDirection={isMobile ? 'column' : 'row'} gap={{ sm: '1rem', xs: '0rem' }} style={{ marginBottom: isMobile ? '0rem':'3rem', marginTop: '7rem' }}>
+                                <Heading color={DEFAULT_COLORS.White} lineHeight={isMobile ? '35px' : '50px'} fontSize="65px">What Makes us </Heading>
+                                <Heading color={DEFAULT_COLORS.Blue} lineHeight={isMobile ? '35px' : '50px'} fontSize="65px">Better</Heading>
                             </Flex>
                             <Text color={DEFAULT_COLORS.Light} maxWidth="500px" textAlign="center" lineHeight="25px" fontSize="20px">With a seamless and secure platform, Nexus is redefining the excellence of launches.</Text>
-                            <Box  display={'flex'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'} gap={isMobile ? '1rem' : '2rem'}>
-                                <SecondayCard image={IMAGE_COLLECTIONS.NexusN} descriptionBold = "Community backed launches " description="infused into an innovative platform." />
-                                <SecondayCard image={IMAGE_COLLECTIONS.Hammer} descriptionBold = "Premium experience " description="on all devices with user-friendly interface." />
-                                <SecondayCard image={IMAGE_COLLECTIONS.Settings} descriptionBold = "Perfectly crafted tools " description="for all new launchpad experience." />
+                            <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'} gap={isMobile ? '1rem' : '2rem'}>
+                                <SecondayCard image={IMAGE_COLLECTIONS.NexusN} descriptionBold="Community backed launches " description="infused into an innovative platform." />
+                                <SecondayCard image={IMAGE_COLLECTIONS.Hammer} descriptionBold="Premium experience " description="on all devices with user-friendly interface." />
+                                <SecondayCard image={IMAGE_COLLECTIONS.Settings} descriptionBold="Perfectly crafted tools " description="for all new launchpad experience." />
                             </Box>
                         </Flex>
                     </Box>

@@ -19,7 +19,7 @@ const PinnEffects = ({ stack }: MyComponentProps) => {
     const isTab = useIsTab()
     return (
         <Box p={'4rem 4rem 0rem 0rem'} className="right" >
-            <Flex flexDirection="column" justifyContent='center' alignItems={isTab ?'start':'start'}>
+            <Flex flexDirection="column" justifyContent='center' alignItems={isTab ?'center':'start'}>
 
                 <div >
                     <PinnedSection isActive={stack === 1 ? true : false} title='Engage' image={'/Images/pin-mini1.png'} description='Engage with Nexus community and compete with others in sharing the upcoming launches for a chance to win a spot.' />

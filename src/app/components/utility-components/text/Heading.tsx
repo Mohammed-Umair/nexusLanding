@@ -17,7 +17,7 @@ const Heading = ({
     const isMobile = useIsMobile()
     return (
         <Typography
-            fontSize={isMobile ? '35px' : fontSize}
+            fontSize={isMobile ? '45px' : fontSize}
             fontFamily={fontFamily}
             fontWeight={400}
             lineHeight={lineHeight}

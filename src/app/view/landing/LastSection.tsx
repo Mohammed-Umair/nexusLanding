@@ -14,7 +14,7 @@ const LastSection = () => {
 
       {isMobile ? (
         <Box>
-          <Image src={IMAGE_COLLECTIONS.BackgroundCircleMobileFull} width="100%" />
+          <Image src={'/Images/footer-mob-main.svg'} width="100%" />
         </Box>
       ) : (
         <Container background={DEFAULT_COLORS.Blue_White_Gradient} >

@@ -16,20 +16,9 @@ interface PinnedSectionProps {
 const PinnedSection = ({ title, image, description, isActive }: PinnedSectionProps) => {
     const isMobile = useIsMobile()
 
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        // Set isMounted to true when the component mounts
-        setIsMounted(true);
-
-        // Cleanup function to set isMounted to false when the component unmounts
-        return () => {
-            setIsMounted(false);
-        };
-    }, []); // Empty dependency array ensures the effect runs only once on mount
     return (
         <Box my="1rem" className="" >
-            <Flex alignItems='start' justifyContent='start' gap={'2.5rem'} className={isMounted ? 'mounted-class' : 'unmounted-class'}>
+            <Flex alignItems='start' justifyContent='start' gap={'2.5rem'} >
                 <Flex flexDirection="column" gap={'0px'}>
                     {
                         isActive ? <div className='scale'><Image src={image} width='70px' style={{ marginBottom: '1rem' }} /></div> : <div className='dot'></div>
