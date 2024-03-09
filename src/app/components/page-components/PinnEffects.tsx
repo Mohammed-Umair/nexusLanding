@@ -18,8 +18,8 @@ const PinnEffects = ({ stack }: MyComponentProps) => {
     const isMobile = useIsMobile()
     const isTab = useIsTab()
     return (
-        <Box p={isTab ? '0rem' : '4rem 4rem 0rem 0rem'} className="right" >
-            <Flex flexDirection="column" justifyContent='start' alignItems='start'>
+        <Box p={'4rem 4rem 0rem 0rem'} className="right" >
+            <Flex flexDirection="column" justifyContent='center' alignItems={isTab ?'start':'start'}>
 
                 <div >
                     <PinnedSection isActive={stack === 1 ? true : false} title='Engage' image={'/Images/pin-mini1.png'} description='Engage with Nexus community and compete with others in sharing the upcoming launches for a chance to win a spot.' />

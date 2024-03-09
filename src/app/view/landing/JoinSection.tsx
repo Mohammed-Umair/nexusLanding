@@ -60,8 +60,8 @@ const JoinSection = ({ scrollToTarget, targetRef }: TargetProps) => {
                             </Box>
                         </Grid>
                     </Grid>
-                    <Box mb="4rem">
-                        <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'} gap={isMobile ? '0rem' : '2rem'}>
+                    <Box mb="2rem" mt={isMobile?'2rem':'0rem'}>
+                        <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'} gap={isTab ? '0rem' : '2rem'}>
                             <JoinCard image={IMAGE_COLLECTIONS.JoinMini1} hoverImage={IMAGE_COLLECTIONS.JoinGif1} title='Sign up' description='Sign up with socials or manually' />
                             <JoinCard image={IMAGE_COLLECTIONS.JoinMini2} hoverImage={IMAGE_COLLECTIONS.JoinMiniGif2} title='Fill Details' description='Fill in your profile details' />
                             <JoinCard image={IMAGE_COLLECTIONS.JoinMini3} hoverImage={IMAGE_COLLECTIONS.JoinMiniGif3} title='Confirm' description='Confirm your email' />

@@ -56,14 +56,14 @@ function PinSectionCompoent() {
           <Flex style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Box className="contain" >
               <Grid container>
-                <Grid item lg={6} sm={6} xs={12}>
+                <Grid item lg={6} sm={12} xs={12}>
                   <Flex>
                     <Box p={isMobile ? '2rem' : '4rem 4rem 0rem 0rem'} className="left">
                       <Image src={pinnedImage} width="100%" />
                     </Box>
                   </Flex>
                 </Grid>
-                <Grid item lg={6} sm={6} xs={12}>
+                <Grid item lg={6} sm={12} xs={12}>
                   <PinnEffectsMobile setPinnedImage={setPinnedImage} />
                 </Grid>
               </Grid>
@@ -78,8 +78,8 @@ function PinSectionCompoent() {
             zIndex={1}
 
             sx={{
-              marginTop: '800px',
-              marginBottom: '800px',
+              marginTop: '30rem',
+              marginBottom: '30rem',
 
             }}>
             <Box position={'relative'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>
@@ -121,6 +121,7 @@ const Content = ({ stack }: any) => {
 
   const boxRef = useIntersectionAnimation();
   const isMobile = useIsMobile()
+  const isTab = useIsTab()
   useEffect(() => {
     if (stack === 1) {
       setPinnedImage('/Images/pin-main1.png')
@@ -137,12 +138,12 @@ const Content = ({ stack }: any) => {
 
   return (
     <Grid container sx={{ position: 'absolute' }}>
-      <Grid item lg={6} sm={6} xs={12}>
-        <Flex justifyContent='end'>
+      <Grid item lg={6} md={12} sm={12} xs={12}>
+        <Flex justifyContent={isTab ? 'center':'end'}>
           <MainImage pinnedImage={pinnedImage} stack={stack} />
         </Flex>
       </Grid>
-      <Grid item lg={6} sm={6} xs={12}>
+      <Grid item lg={6} md={12} sm={12} xs={12}>
         <PinnEffects stack={stack} />
       </Grid>
     </Grid>
@@ -151,12 +152,13 @@ const Content = ({ stack }: any) => {
 
 const MainImage = ({ pinnedImage, stack }: any) => {
   const isMobile = useIsMobile();
+  const isTab = useIsTab()
   const [state, setState] = useState(false);
 
   useEffect(() => { setState(!state) }, [pinnedImage])
   return (
     <Box p={isMobile ? '1rem' : '0rem'} mt={'3rem'} className={state ? 'opac' : 'opac1'} >
-      <Image src={pinnedImage} width={isMobile ? '100%' : '85%'} />
+      <Image src={pinnedImage} width={isTab ? '100%' : '85%'} />
     </Box>
   )
 }

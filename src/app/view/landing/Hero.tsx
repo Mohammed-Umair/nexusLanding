@@ -50,7 +50,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
       minHeight: isTab ? '100%' : '860px'
     }} m="1rem" ref={targetRef}>
       <Header />
-      {isTab ? (
+      {isMobile ? (
         <>
           <Flex>
             <Box left='0rem' top="0rem">
@@ -83,7 +83,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
                   },
                   cursor: 'pointer',
                 }}>
-                  <TelegramIcon fontSize="small" /> 
+                  <TelegramIcon fontSize="small" />
 
                 </Box>
               </a>
@@ -106,7 +106,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
       ) : (
         <Box position={'relative'}>
           <video autoPlay loop playsInline muted className="video-content">
-            <source src='/Images/hero-bg.mp4' type="video/mp4" /> 
+            <source src='/Images/hero-bg.mp4' type="video/mp4" />
             <track
               src="/path/to/captions.vtt"
               kind="subtitles"
@@ -116,18 +116,18 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
             Your browser does not support the video.
           </video>
           <Box className="hero-centered-element">
-            <Flex width="100%" style={{marginLeft:'8rem'}}>
+            <Flex width="100%" style={{ marginLeft: '1rem' }}>
               < Box position="relative" zIndex={100} >
-                {!isTab && (
-                  <Typography fontSize="90px" fontFamily="SEN bold" color={DEFAULT_COLORS.White} lineHeight={'80px'}>Leading  <br /> Launches.</Typography>
+                {!isMobile && (
+                  <Typography fontSize={isTab ? '60px' : '90px'} fontFamily="SEN bold" color={DEFAULT_COLORS.White} lineHeight={'80px'}>Leading  <br /> Launches.</Typography>
                 )}
-                <Flex style={{ marginTop: '5rem', marginRight: '5rem' }}>
+                <Flex style={{ marginTop: isTab ? '1rem' : '5rem', marginRight: '5rem' }}>
                   <ButtonWithIcon background={DEFAULT_COLORS.White} color={DEFAULT_COLORS.black} borderRadius="30px" icon={
                     <IconButton background={DEFAULT_COLORS.Blue} color={DEFAULT_COLORS.White}><ArrowForwardIcon sx={{ color: DEFAULT_COLORS.White }} /></IconButton>
                   } onClick={() => scrollToTarget()}>How to join?</ButtonWithIcon>
                   <Button background={DEFAULT_COLORS.Blue} border borderColor={DEFAULT_COLORS.White} >Read Docs</Button>
                 </Flex>
-                <Box mt="10rem" mr="12rem">
+                <Box mt={isTab ? '1rem' : "10rem"} mr="12rem">
                   <Flex>
                     <Button borderRadius="25px" padding=".6rem 1.2rem" >
                       <Box sx={{
