@@ -47,7 +47,7 @@ const Hero = ({ scrollToTarget, targetRef }: ButtonProps) => {
       borderRadius: '15px',
       position: 'relative',
       height: '100%',
-      minHeight: isTab ? '100%' : '860px'
+      minHeight: isTab ? '100%' : '100%'
     }} m="1rem" ref={targetRef}>
       <Header />
       {isTab ? (
