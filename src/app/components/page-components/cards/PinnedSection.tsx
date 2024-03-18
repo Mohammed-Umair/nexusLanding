@@ -33,7 +33,8 @@ const PinnedSection = ({ title, image, description, isActive }: PinnedSectionPro
                         <Text fontSize={isMobile || !isActive ? '25px' : '40px'} lineHeight='19px' fontFamily='SEN bold' color={DEFAULT_COLORS.White}>{title}</Text>
                     </Box>
                     <Box sx={{
-                        transition: 'height 500ms ease',
+                        transform: 'translateY(20px)',
+                        transition: 'height 2s ease, transform 2s ease',
                         height: isActive ? 'auto' : '0px', // Set height to 'auto' when isActive is true, '0' when isActive is false
                         overflow: 'hidden', // Ensure content is hidden when height is 0
                         maxWidth: '350px', // Set maximum width

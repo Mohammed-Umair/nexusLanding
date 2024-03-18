@@ -2,7 +2,7 @@ import { Box, Grid, Container } from '@mui/material';
 import Flex from '../../components/utility-components/flex/Flex';
 import Image from '../../components/utility-components/image/Image';
 import { IMAGE_COLLECTIONS } from '@/app/utils/images';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import RightShadow from '@/app/components/page-components/RightShadow';
 import PinnEffects from '@/app/components/page-components/PinnEffects';
 import PinnEffectsMobile from '@/app/components/page-components/PinnEffectMobile';
@@ -16,11 +16,29 @@ function PinSectionCompoent() {
   const isMobile = useIsMobile()
   const istab = useIsTab()
   const [currentImage, setCurrentImage] = useState(0);
+  const pinSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
+      if(!pinSectionRef.current) return;
       const scrollPosition = window.scrollY;
       const viewportHeight = window.innerHeight;
+      const rect = pinSectionRef.current.getBoundingClientRect();
+      const parentDivHeight = rect.height;
+      const parentDivTop = rect.top;
+      const visiblePercent = Math.max(0, Math.min(100, (viewportHeight - parentDivTop) / parentDivHeight * 100));
+      if(visiblePercent >=1 && visiblePercent <=60) {
+        setCurrentImage(1);
+      }
+      else if(visiblePercent >60 && visiblePercent <=80) {
+        setCurrentImage(3);
+      }
+      if(visiblePercent >80 && visiblePercent <=90) {
+        setCurrentImage(4);
+      }
+      if(visiblePercent >99) {
+        setCurrentImage(5);
+      }
       const numberOfImages = 4; // Assuming you have 4 images
       const imageHeight = viewportHeight - 200; // Each image takes the full height of the viewport
 
@@ -29,13 +47,13 @@ function PinSectionCompoent() {
       console.log("Viewport Height:", imageHeight);
 
       // Calculate which image should be displayed based on the scroll position
-      const imageIndexToShow = Math.floor(scrollPosition / imageHeight);
+      // const imageIndexToShow = Math.floor(scrollPosition / imageHeight);
 
       // Log the calculated index
-      console.log("Image Index:", imageIndexToShow);
+      // console.log("Image Index:", imageIndexToShow);
 
       // Ensure the image index doesn't go beyond the number of images
-      setCurrentImage(imageIndexToShow);
+      // setCurrentImage(imageIndexToShow);
       console.log('current image', currentImage);
 
     };
@@ -70,19 +88,19 @@ function PinSectionCompoent() {
             </Box>
           </Flex>
         ) : (
-        <Box sx={{ height: { xs: '500vh', sm: '400vh', md: '400vh', lg: '400vh', xl: '320vh' }, position: 'relative', width: '100%' }}>
+        <Box sx={{ position: 'relative', width: '100%' }}>
           <Box
-            position={'sticky'}
-            top={'50%'}
-            left={'0%'}
+            // position={'sticky'}
+            // top={'50%'}
+            // left={'0%'}
             zIndex={1}
-
+          >
+            <Box
             sx={{
-              marginTop: '30rem',
-              marginBottom: '30rem',
-
-            }}>
-            <Box position={'relative'} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>
+              paddingTop: '5rem',
+              paddingBottom: '10rem',
+            }}
+            ref={pinSectionRef} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>
               <Content
                 stack={
                   isMobile ? (
@@ -137,7 +155,7 @@ const Content = ({ stack }: any) => {
   }, [stack])
 
   return (
-    <Grid container sx={{ position: 'absolute' }}>
+    <Grid container>
       <Grid item lg={6} md={6} sm={6} xs={6}>
         <Flex justifyContent={isTab ? 'center':'end'}>
           <MainImage pinnedImage={pinnedImage} stack={stack} />
