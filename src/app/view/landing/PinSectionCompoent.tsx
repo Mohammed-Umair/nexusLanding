@@ -97,7 +97,7 @@ function PinSectionCompoent() {
           >
             <Box
             sx={{
-              paddingTop: '5rem',
+              paddingTop: '10rem',
               paddingBottom: '10rem',
             }}
             ref={pinSectionRef} display={'flex'} justifyContent={'center'} alignItems={'center'} ml={isMobile ? '' : '5%'}>
