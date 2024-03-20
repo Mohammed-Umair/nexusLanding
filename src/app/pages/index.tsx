@@ -17,11 +17,11 @@ const endPoint = 1400;
 const Main = () => {
   const [loading, setLoading] = useState(true);
 
-  const [scrollingtPoint, setScrollingtPoint] = useState(0);
-  const [disableScroll, setDisableScroll] = useState(false);
+  // const [scrollingtPoint, setScrollingtPoint] = useState(0);
+  // const [disableScroll, setDisableScroll] = useState(false);
 
-  console.log("visable percent:==>", scrollingtPoint);
-  console.log("visable percent:==>:==>", disableScroll);
+  // console.log("visable percent:==>", scrollingtPoint);
+  // console.log("visable percent:==>:==>", disableScroll);
 
   const targetRef = useRef<HTMLDivElement>(null);
   const targetRefSign = useRef<HTMLDivElement>(null);
@@ -62,34 +62,34 @@ const Main = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const pinSectionElement = pinSectionRef.current
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const pinSectionElement = pinSectionRef.current
      
-      if (pinSectionElement) {
-        if (isInViewport(pinSectionElement)) {
-          document.body.style.overflow = "hidden";
-        } else {
-          document.body.style.overflow = "auto";
-        }
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
+  //     if (pinSectionElement) {
+  //       if (isInViewport(pinSectionElement)) {
+  //         document.body.style.overflow = "hidden";
+  //       } else {
+  //         document.body.style.overflow = "auto";
+  //       }
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-  const isInViewport = (element: HTMLElement) => {
-    const rect = element.getBoundingClientRect();
-    return (
-      (rect.top >= 0 && rect.left >= 0 && rect.bottom <= window.innerHeight) ||
-      (document.documentElement.clientHeight &&
-        rect.right <= window.innerWidth) ||
-      document.documentElement.clientWidth
-    );
-  };
+  // const isInViewport = (element: HTMLElement) => {
+  //   const rect = element.getBoundingClientRect();
+  //   return (
+  //     (rect.top >= 0 && rect.left >= 0 && rect.bottom <= window.innerHeight) ||
+  //     (document.documentElement.clientHeight &&
+  //       rect.right <= window.innerWidth) ||
+  //     document.documentElement.clientWidth
+  //   );
+  // };
 
  
 
@@ -104,7 +104,7 @@ const Main = () => {
             <LandingSecondary />
             <Scroller />
 
-            <Box ref={pinSectionRef}>
+            <Box >
               <PinSectionCompoent  />
             </Box>
 
