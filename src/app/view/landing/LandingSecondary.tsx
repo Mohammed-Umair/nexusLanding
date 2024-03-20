@@ -52,12 +52,12 @@ const LandingSecondary = () => {
                 <LeftShadow />
             </Box>
             <MainRelativeContainer>
-                {/* <LeftMaskContainer>
+                <LeftMaskContainer>
                     <img src="Images/blueleft.png"></img>
                 </LeftMaskContainer>
                 <RightMaskContainer>
                     <img src="Images/blueright.png"></img>
-                </RightMaskContainer> */}
+                </RightMaskContainer>
                 <Flex sx={{ height: isMobile ? '800px' : '70vh', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '5rem' }}>
                     <Box my={'4rem'} >
                         <Flex flexDirection="column" gap="3rem">
@@ -66,7 +66,9 @@ const LandingSecondary = () => {
                                 <Heading color={DEFAULT_COLORS.Blue} lineHeight={isMobile ? '35px' : '50px'} fontSize="65px">Better</Heading>
                             </Flex>
                             <Text color={DEFAULT_COLORS.Light} maxWidth="500px" textAlign="center" lineHeight="25px" fontSize="20px">With a seamless and secure platform, Nexus is redefining the excellence of launches.</Text>
-                            <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'} gap={isMobile ? '1rem' : '2rem'}>
+                            <Box display={'flex'} justifyContent={'center'} alignItems={'center'} flexWrap={'wrap'} gap={isMobile ? '1rem' : '2rem'} 
+      padding={isMobile ? "0px 20px" : "0px 0px"}
+      >
                                 <SecondayCard image={IMAGE_COLLECTIONS.NexusN} descriptionBold="Community backed launches " description="infused into an innovative platform." />
                                 <SecondayCard image={IMAGE_COLLECTIONS.Hammer} descriptionBold="Premium experience " description="on all devices with user-friendly interface." />
                                 <SecondayCard image={IMAGE_COLLECTIONS.Settings} descriptionBold="Perfectly crafted tools " description="for all new launchpad experience." />
