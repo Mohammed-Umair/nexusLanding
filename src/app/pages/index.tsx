@@ -11,17 +11,16 @@ import { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Box, Container } from "@mui/material";
 import Flex from "../components/utility-components/flex/Flex";
+import PinSection from "../view/landing/PinSection";
 
-const pinPont = 1070;
-const endPoint = 1400;
 const Main = () => {
   const [loading, setLoading] = useState(true);
 
-  // const [scrollingtPoint, setScrollingtPoint] = useState(0);
-  // const [disableScroll, setDisableScroll] = useState(false);
+  const [scrollingtPoint, setScrollingtPoint] = useState(0);
+  const [disableScroll, setDisableScroll] = useState<boolean>(false);
 
-  // console.log("visable percent:==>", scrollingtPoint);
-  // console.log("visable percent:==>:==>", disableScroll);
+  console.log("disableScroll percent:==>", scrollingtPoint);
+  console.log("disableScroll>", disableScroll);
 
   const targetRef = useRef<HTMLDivElement>(null);
   const targetRefSign = useRef<HTMLDivElement>(null);
@@ -62,36 +61,34 @@ const Main = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const pinSectionElement = pinSectionRef.current
-     
-  //     if (pinSectionElement) {
-  //       if (isInViewport(pinSectionElement)) {
-  //         document.body.style.overflow = "hidden";
-  //       } else {
-  //         document.body.style.overflow = "auto";
-  //       }
-  //     }
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const handleScroll = () => {
+      const pinSectionElement = pinSectionRef.current;
+      if (pinSectionRef.current && isInViewport(pinSectionRef.current)) {
+        document.body.style.overflow = "hidden";
+        setDisableScroll(true);
+      } else {
+        document.body.style.overflow = "visible";
+        setDisableScroll(false);
+      }
+    };
 
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    window.addEventListener("scroll", handleScroll);
 
-  // const isInViewport = (element: HTMLElement) => {
-  //   const rect = element.getBoundingClientRect();
-  //   return (
-  //     (rect.top >= 0 && rect.left >= 0 && rect.bottom <= window.innerHeight) ||
-  //     (document.documentElement.clientHeight &&
-  //       rect.right <= window.innerWidth) ||
-  //     document.documentElement.clientWidth
-  //   );
-  // };
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
- 
+  const isInViewport = (element: HTMLElement) => {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= window.innerHeight &&
+      rect.right <= window.innerWidth
+    );
+  };
 
   return (
     <>
@@ -104,10 +101,15 @@ const Main = () => {
             <LandingSecondary />
             <Scroller />
 
-            <Box >
-              <PinSectionCompoent  />
+            <Box ref={pinSectionRef}>
+              <PinSectionCompoent
+                disableScroll={disableScroll}
+                setScrollingtPoint={setDisableScroll}
+                setDisableScroll={setDisableScroll} 
+              />
             </Box>
 
+            {/* <PinSection /> */}
             <JoinSection
               scrollToTarget={scrollToTargetSign}
               targetRef={targetRef}

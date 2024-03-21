@@ -10,23 +10,39 @@ import useIntersectionAnimation from "@/app/hooks/useIntersectionAnimation";
 import useIsMobile from "@/app/hooks/useIsMobile";
 import styled from "styled-components";
 import useIsTab from "@/app/hooks/useIsTab";
+import { TryRounded } from "@mui/icons-material";
 interface PinSectionProps {
-  setScrollingtPoint:any
-  pinSectionRef: React.RefObject<HTMLDivElement>;
+  disableScroll: boolean;
+  setScrollingtPoint: any;
+  setDisableScroll: any;
 }
 
-export const PinSectionCompoent = () => {
+export const PinSectionCompoent = ({
+  disableScroll,
+  setScrollingtPoint,
+  setDisableScroll,
+}: PinSectionProps) => {
   const isMobile = useIsMobile();
   const istab = useIsTab();
   const [currentImage, setCurrentImage] = useState(0);
+  const [isFixed, setIsFixed] = useState(true);
+
   const pinSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (!pinSectionRef.current) return;
+
+      const container = pinSectionRef.current;
+
+      const isScrolledToBottom =
+        container.scrollHeight - container.scrollTop === container.clientHeight;
+      setIsFixed(!isScrolledToBottom);
       const scrollPosition = window.scrollY;
       const viewportHeight = window.innerHeight;
       const rect = pinSectionRef.current.getBoundingClientRect();
+      // const isVisiable = rect.top <= window.innerHeight && rect.bottom >= 0;
+      // setIsFixed(isVisiable);
       const parentDivHeight = rect.height;
       const parentDivTop = rect.top;
       const visiblePercent = Math.max(
@@ -52,7 +68,6 @@ export const PinSectionCompoent = () => {
       console.log("Viewport Height:", imageHeight);
       console.log("visable percent:", visiblePercent);
 
-
       // Calculate which image should be displayed based on the scroll position
       // const imageIndexToShow = Math.floor(scrollPosition / imageHeight);
 
@@ -62,7 +77,12 @@ export const PinSectionCompoent = () => {
       // Ensure the image index doesn't go beyond the number of images
       // setCurrentImage(imageIndexToShow);
       console.log("current image", currentImage);
-      // setScrollingtPoint(visiblePercent)
+      setScrollingtPoint(visiblePercent);
+      if (visiblePercent > 1 && visiblePercent < 99) {
+        setDisableScroll(false);
+      } else {
+        setDisableScroll(true);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -73,7 +93,7 @@ export const PinSectionCompoent = () => {
     IMAGE_COLLECTIONS.PinSectionImage
   );
   return (
-    <Box >
+    <Box>
       <Box position={"absolute"} right="0px" top="1200px">
         <RightShadow />
       </Box>
@@ -86,7 +106,13 @@ export const PinSectionCompoent = () => {
             alignItems: "center",
           }}
         >
-          <Box className="contain">
+          <Box
+            className="contain"
+            sx={{
+              position: isFixed ? "fixed" : "relative",
+              width: "100%",
+            }}
+          >
             <Grid container>
               <Grid item lg={6} sm={12} xs={12}>
                 <Flex>
@@ -106,12 +132,7 @@ export const PinSectionCompoent = () => {
         </Flex>
       ) : (
         <Box sx={{ position: "relative", width: "100%" }}>
-          <Box
-            // position={'sticky'}
-            // top={'50%'}
-            // left={'0%'}
-            zIndex={1}
-          >
+          <Box zIndex={1}>
             <Box
               sx={{
                 paddingTop: "10rem",
@@ -156,7 +177,7 @@ export const PinSectionCompoent = () => {
 
 export default PinSectionCompoent;
 
-const Content = ({ stack }: any) => { 
+const Content = ({ stack }: any) => {
   const [pinnedImage, setPinnedImage] = React.useState(
     IMAGE_COLLECTIONS.PinSectionImage
   );
