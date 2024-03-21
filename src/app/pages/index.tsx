@@ -11,7 +11,7 @@ import { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Box, Container } from "@mui/material";
 import Flex from "../components/utility-components/flex/Flex";
-import PinSection from "../view/landing/PinSection";
+
 
 const Main = () => {
   const [loading, setLoading] = useState(true);
@@ -109,7 +109,7 @@ const Main = () => {
               />
             </Box>
 
-            {/* <PinSection /> */}
+           
             <JoinSection
               scrollToTarget={scrollToTargetSign}
               targetRef={targetRef}
